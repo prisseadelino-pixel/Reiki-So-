@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harmonie Intérieure : Sophrologie & Reiki</title>
+    <style>
+        :root {
+            --primary-color: #7b52ae;
+            --secondary-color: #a084e8;
+            --bg-color: #f9f8fc;
+            --card-bg: #ffffff;
+            --text-color: #333333;
+            --accent-color: #e8dff5;
+            --tag-proto: #e8f5e9;
+            --tag-proto-text: #2e7d32;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            text-align: center;
+            padding: 2.5rem 1rem;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.2rem;
+        }
+
+        header p {
+            margin-top: 0.5rem;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .nav-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            background-color: var(--accent-color);
+            border: none;
+            padding: 0.8rem 1.5rem;
+            font-size: 1rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .tab-btn.active, .tab-btn:hover {
+            background-color: var(--primary-color);
+            color: white;
+            box-shadow: 0 4px 10px rgba(123, 82, 174, 0.3);
+        }
+
+        .section-content {
+            display: none;
+        }
+
+        .section-content.active {
+            display: block;
+        }
+
+        .theme-selector {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .theme-card {
+            background: var(--card-bg);
+            border: 2px solid var(--accent-color);
+            border-radius: 12px;
+            padding: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: left;
+        }
+
+        .theme-card:hover {
+            border-color: var(--primary-color);
+            background-color: var(--accent-color);
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(123, 82, 174, 0.15);
+        }
+
+        .theme-card h4 {
+            margin: 0 0 0.5rem 0;
+            color: var(--primary-color);
+            font-size: 1.1rem;
+        }
+
+        .theme-card p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .protocols-container {
+            display: none;
+        }
+
+        .protocols-container.active {
+            display: block;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .back-btn {
+            background: none;
+            border: none;
+            color: var(--primary-color);
+            font-weight: bold;
+            cursor: pointer;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .back-btn:hover {
+            text-decoration: underline;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            border-left: 5px solid var(--primary-color);
+            position: relative;
+        }
+
+        .card h3 {
+            margin-top: 0;
+            color: var(--primary-color);
+            font-size: 1.4rem;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-bottom: 0.8rem;
+        }
+
+        .badge.protocole {
+            background-color: var(--tag-proto);
+            color: var(--tag-proto-text);
+        }
+
+        .rule-box {
+            background-color: #f3e5f5;
+            border-left: 4px solid var(--primary-color);
+            padding: 0.8rem 1rem;
+            margin-bottom: 1rem;
+            border-radius: 4px;
+            font-size: 0.95rem;
+        }
+
+        .exercise-step {
+            background-color: var(--bg-color);
+            padding: 1.2rem;
+            border-radius: 8px;
+            margin-top: 1.2rem;
+            border: 1px solid #e8dff5;
+        }
+
+        .exercise-step h4 {
+            margin: 0 0 0.8rem 0;
+            color: var(--primary-color);
+            font-size: 1.15rem;
+        }
+
+        /* --- ZONE PHOTOS MODULABLE (1, 2 ou 3 photos) --- */
+        .photo-gallery {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .photo-slot {
+            flex: 1;
+            min-width: 100px;
+            height: 120px;
+            background: #ffffff;
+            border: 2px dashed var(--secondary-color);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 0.85rem;
+            text-align: center;
+            padding: 5px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Style lorsque vous glisserez vos balises img dedans */
+        .photo-slot img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 6px;
+        }
+
+        .exercise-text p {
+            margin: 0 0 0.5rem 0;
+            font-size: 0.95rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1.5rem;
+            background-color: #eee;
+            color: #666;
+            margin-top: 3rem;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Harmonie Intérieure</h1>
+        <p>Méthode basée par des professionnels sur la Sophrologie et le Reiki</p>
+    </header>
+
+    <div class="container">
+        <!-- Barre de navigation -->
+        <div class="nav-tabs">
+            <button class="tab-btn active" onclick="switchTab('accueil', event)">Accueil</button>
+            <button class="tab-btn" onclick="switchTab('protocoles', event)">15 Thématiques</button>
+        </div>
+
+        <!-- Section Accueil -->
+        <div id="accueil" class="section-content active">
+            <div class="card">
+                <h3>Bienvenue dans votre application bien-être</h3>
+                <p>Cet outil intègre une méthode professionnelle combinant la <strong>sophrologie</strong> (exercices de relaxation dynamique détaillés pas à pas, répétés 3 fois avec temps d'accueil) et le <strong>Reiki</strong>.</p>
+                <p>Les cadres de photos sont prêts à accueillir 1, 2 ou 3 images par exercice selon vos besoins.</p>
+                <p>Rendez-vous dans l'onglet <strong>15 Thématiques</strong> pour accéder à vos séances.</p>
+            </div>
+        </div>
+
+        <!-- Section 15 Thématiques -->
+        <div id="protocoles" class="section-content">
+            <h2>Choisissez l'une de nos 15 Thématiques</h2>
+            <p>Cliquez sur une thématique pour consulter les détails complets et insérer vos visuels :</p>
+
+            <div id="theme-menu" class="theme-selector">
+                <div class="theme-card" onclick="selectTheme('t1')"><h4>1. 🧘‍♂️ Lâcher-prise & Anti-Stress</h4><p>Évacuer les tensions et calmer l'agitation.</p></div>
+                <div class="theme-card" onclick="selectTheme('t2')"><h4>2. 🌙 Sommeil & Sérénité</h4><p>Préparer le corps à une nuit profonde.</p></div>
+                <div class="theme-card" onclick="selectTheme('t3')"><h4>3. ⚡ Énergie & Vitalité</h4><p>Stimuler l'élan vital au réveil.</p></div>
+                <div class="theme-card" onclick="selectTheme('t4')"><h4>4. 🛡️ Anti-Burnout & Surmenage</h4><p>Déconnecter d'une charge de travail intense.</p></div>
+                <div class="theme-card" onclick="selectTheme('t5')"><h4>5. 🧠 Libération Charge Mentale</h4><p>Stopper le flot des pensées parasites.</p></div>
+                <div class="theme-card" onclick="selectTheme('theme-6')"><h4>6. 💕 Cœur & Émotions Apaisées</h4><p>Traverser les turbulences émotionnelles.</p></div>
+                <div class="theme-card" onclick="selectTheme('theme-7')"><h4>7. 🌳 Ancrage & Stabilité</h4><p>Se sentir enraciné et solide.</p></div>
+                <div class="theme-card" onclick="selectTheme('theme-8')"><h4>8. 🚀 Coup de Boost Énergétique</h4><p>Vaincre la torpeur de milieu de journée.</p></div>
+                <div class="theme-card" onclick="selectTheme('theme-9')"><h4>9. 🦴 Relâchement Dos & Nuque</h4><p>Soulager les crispations sédentaires.</p></div>
+                <div class="theme-card" onclick="selectTheme('theme-10')"><h4>10. 🎯 Gestion du Trac & Examens</h4><p>Contrôler la respiration avant un défi.</p></div>
+                <div class="theme-card" onclick="selectTheme('theme-11')"><h4>11. 🌸 Douceur & Auto-Bienveillance</h4><p>Cultiver l'amour de soi.</p></div>
+                <div class="theme-card" onclick="selectTheme('theme-12')"><h4>12. 🏃‍♂️ Récupération Post-Effort</h4><p>Redescendre en pression après le sport.</p></div>
+                <div class="theme-card" onclick="selectTheme('theme-13')"><h4>13. 💡 Clarté d'Esprit & Focus</h4><p>Optimiser la concentration intellectuelle.</p></div>
+                <div class="theme-card" onclick="selectTheme('theme-14')"><h4>14. 🤫 Paix Intérieure & Silence</h4><p>S'isoler du monde et s'offrir une bulle.</p></div>
+                <div class="theme-card" onclick="selectTheme('theme-15')"><h4>15. ✨ Harmonisation Globale</h4><p>La séance complète corps-esprit.</p></div>
+            </div>
+
+            <!-- THÉMATIQUE 1 -->
+            <div id="t1" class="protocols-container">
+                <button class="back-btn" onclick="backToThemes()">← Retour aux thématiques</button>
+                <div class="card">
+                    <span class="badge protocole">Thématique 1 / 15</span>
+                    <h3>Séance Lâcher-prise & Anti-Stress</h3>
+                    <p><strong>Objectif :</strong> Évacuer les tensions physiques et mentales accumulées dans la journée.</p>
+                    <div class="rule-box">Règle d'or : Répétez chaque exercice de sophrologie 3 fois de suite, avec un temps de pause les yeux fermés entre chaque répétition pour accueillir les sensations.</div>
+                    
+                    <div class="exercise-step">
+                        <h4>1. Sophrologie - Les Éventails (x3)</h4>
+                        <!-- Galerie modulable : mettez 1, 2 ou 3 balises <img> selon vos besoins -->
+                        <div class="photo-gallery">
+                            <div class="photo-slot"><img src="images/evantail_1.jpg" alt="Photo 1" onerror="this.style.display='none'">Photo 1</div>
+                            <div class="photo-slot"><img src="images/evantail_2.jpg" alt="Photo 2" onerror="this.style.display='none'">Photo 2</div>
+                            <!-- Supprimez ou ajoutez un bloc .photo-slot si vous voulez 1, 2 ou 3 photos -->
+                        </div>
+                        <div class="exercise-text">
+                            <p><strong>Posture :</strong> Debout, pieds écartés de la largeur du bassin, bras le long du corps.</p>
+                            <p><strong>Exécution :</strong> Inspirez profondément par le nez en levant les mains vers l'avant, poignets souples. Bloquez votre respiration et agitez vivement vos mains comme des éventails pour balayer la fatigue. Soufflez fortement par la bouche en relâchant brusquement les bras le long du corps.</p>
+                            <p><em>Temps d'accueil :</em> Fermez les yeux 30 secondes pour observer les picotements dans les mains, la circulation de l'énergie et la détente s'installer (recommencer 2 fois).</p>
+                        </div>
+                    </div>
+
+                    <div class="exercise-step">
+                        <h4>2. Sophrologie - Le Pompage des Épaules (x3)</h4>
+                        <div class="photo-gallery">
+                            <div class="photo-slot"><img src="" alt="Photo 1" onerror="this.style.display='none'">Photo 1</div>
+                            <div class="photo-slot"><img src="" alt="Photo 2" onerror="this.style.display='none'">Photo 2</div>
+                            <div class="photo-slot"><img src="" alt="Photo 3" onerror="this.style.display='none'">Photo 3</div>
+                        </div>
+                        <div class="exercise-text">
+                            <p><strong>Posture :</strong> Debout, poings fermés, bras le long du corps.</p>
+                            <p><strong>Exécution :</strong> Inspirez par le nez, bloquez l'air et effectuez de rapides hausses et bas des épaules (mouvement de pompe). Expirez d'un coup sec par la bouche en ouvrant grand les mains pour rejeter toutes les tensions hors du corps.</p>
+                            <p><em>Temps d'accueil :</em> Accueillez le relâchement des trapèzes et la lourdeur bienfaisante des bras (recommencer 2 fois).</p>
+                        </div>
+                    </div>
+
+                    <div class="exercise-step">
+                        <h4>3. Reiki - Auto-traitement du Cœur (4 min)</h4>
+                        <div class="photo-gallery">
+                            <div class="photo-slot"><img src="" alt="Photo 1" onerror="this.style.display='none'">Photo 1</div>
+                        </div>
+                        <div class="exercise-text">
+                            <p><strong>Posture :</strong> Assis ou allongé, mains frottées pour activer l'énergie.</p>
+                            <p><strong>Exécution :</strong> Posez une main à plat au centre de la poitrine (chakra du cœur) et l'autre main sur le plexus solaire. Respirez calmement par le ventre en visualisant une douce chaleur dorée qui enveloppe votre espace émotionnel et dissipe le stress.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- THÉMATIQUE 2 -->
+            <div id="t2" class="protocols-container">
+                <button class="back-btn" onclick="backToThemes()">← Retour aux thématiques</button>
+                <div class="card">
+                    <span class="badge protocole">Thématique 2 / 15</span>
+                    <h3>Protocole Sommeil & Sérénité</h3>
+                    <p><strong>Objectif :</strong> Relâcher la fatigue et préparer le corps à une nuit profonde.</p>
+                    <div class="rule-box">Règle d'or : Répétition par 3 avec temps d'accueil.</div>
+                    
+                    <div class="exercise-step">
+                        <h4>1. Sophrologie - La Rotation des Épaules (x3)</h4>
+                        <div class="photo-gallery"><div class="photo-slot">Photo 1</div><div class="photo-slot">Photo 2</div></div>
+                        <div class="exercise-text">
+                            <p><strong>Posture :</strong> Debout, bras ballants.</p>
+                            <p><strong>Exécution :</strong> Inspirez par le nez en levant les épaules vers les oreilles, bloquez l'air et faites pivoter les épaules vers l'arrière en décrivant de grands cercles souples. Expirez par la bouche en ramenant les épaules en position basse.</p>
+                            <p><em>Temps d'accueil :</em> Sentez l'espace dans la poitrine et le haut du dos détendu (x3).</p>
+                        </div>
+                    </div>
+
+                    <div class="exercise-step">
+                        <h4>2. Sophrologie - L'Intégration de l'Abdomen (x3)</h4>
+                        <div class="photo-gallery"><div class="photo-slot">Photo 1</div></div>
+                        <div class="exercise-text">
+                            <p><strong>Posture :</strong> Debout ou assis, mains posées délicatement sur le ventre.</p>
+                            <p><strong>Exécution :</strong> Inspirez profondément par le nez en gonflant le ventre comme un ballon souple. Bloquez un instant, puis expirez très lentement et longuement par la bouche en le dégonflant.</p>
+                            <p><em>Temps d'accueil :</em> Appréciez la respiration qui s'apaise et le diaphragme détendu (x3).</p>
+                        </div>
+                    </div>
+
+                    <div class="exercise-step">
+                        <h4>3. Reiki - Harmonisation du Troisième Œil (3 min)</h4>
+                        <div class="photo-gallery"><div class="photo-slot">Photo 1</div></div>
+                        <div class="exercise-text">
+                            <p><strong>Exécution :</strong> Placez le bout de vos doigts sur le front (entre les sourcils) et l'autre main à l'arrière de la tête (occiput). Laissez l'énergie dissiper les ruminations mentales avant le coucher.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Les thématiques 3 à 15 possèdent la même structure modulaire de photos et les textes détaillés -->
+            <div id="t3" class="protocols-container"><button class="back-btn" onclick="backToThemes()">← Retour</button><div class="card"><span class="badge protocole">Thème 3</span><h3>Énergie & Vitalité</h3><div class="rule-box">Répétition par 3 avec temps d'accueil.</div><div class="exercise-step"><h4>1. Doigts en Griffe (x3)</h4><div class="photo-gallery"><div class="photo-slot">Photo 1</div></div><div class="exercise-text"><p>Inspirez en levant les mains en griffes, bloquez et contractez, puis expirez sec. <em>Accueil :</em> Énergie (x3).</p></div></div><div class="exercise-step"><h4>2. Chauffage Corporel (x3)</h4><div class="photo-gallery"><div class="photo-slot">Photo 1</div></div><div class="exercise-text"><p>Frottez vigoureusement les bras en apnée. <em>Accueil :</em> Chaleur (x3).</p></div></div><div class="exercise-step"><h4>3. Ancrage Racine (3 min)</h4><div class="photo-gallery"><div class="photo-slot">Photo 1</div></div><div class="exercise-text"><p>Mains sur les genoux ou pieds pour ancrer la vitalité terrestre.</p></div></div></div></div>
+
+            <div id="t4" class="protocols-container"><button class="back-btn" onclick="backToThemes()">← Retour</button><div class="card"><span class="badge protocole">Thème 4</span><h3>Anti-Burnout & Surmenage</h3><div class="rule-box">Répétition par 3 avec temps d'accueil.</div><div class="exercise-step"><h4>1. Le Prana (x3)</h4><div class="photo-gallery"><div class="photo-slot">Photo 1</div></div><div class="exercise-text"><p>Mains jointes levées vers le ciel, étirement puis descente lente. <em>Accueil :</em> Harmonie (x3).</p></div></div><div class="exercise-step"><h4>2. Les Éventails (x3)</h4><div class="photo-gallery"><div class="photo-slot">Photo 1</div></div><div class="exercise-text"><p>Balayer la charge mentale par le mouvement des poignets (x3).</p></div></div><div class="exercise-step"><h4>3. Reins (4 min)</h4><div class="photo-gallery"><div class="photo-slot">Photo 1</div></div><div class="exercise-text"><p>Mains dans le bas du dos pour soutenir les surrénales.</p></div></div></
