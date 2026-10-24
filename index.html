@@ -1029,6 +1029,11 @@
 
             document.getElementById(tabId).classList.add('active');
             event.currentTarget.classList.add('active');
+
+            // Si on clique sur l'onglet "15 Thématiques", on s'assure de réafficher la grille des menus et de masquer les fiches
+            if (tabId === 'protocoles') {
+                backToThemes();
+            }
         }
 
         function selectTheme(themeId) {
