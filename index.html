@@ -306,7 +306,7 @@
             <div class="card">
                 <h3>Bienvenue dans votre application bien-être</h3>
                 <p>Cet outil intègre une méthode professionnelle combinant la <strong>sophrologie</strong> et le <strong>Reiki</strong>.</p>
-                <p>Vos photos et configurations sont désormais <strong>sauvegardées automatiquement</strong> dans la mémoire de votre navigateur au fur et à mesure que vous les ajoutez.</p>
+                <p>Vos choix de photos sont sauvegardés automatiquement dans votre navigateur au fur et à mesure.</p>
             </div>
         </div>
 
@@ -436,7 +436,7 @@
                 </div>
             </div>
 
-            <!-- Thématiques 3 à 15 (identiques avec ID de suivi) -->
+            <!-- Thématiques 3 à 15 -->
             <div id="t3" class="protocols-container"><button class="back-btn" onclick="backToThemes()">← Retour</button><div class="card"><span class="badge protocole">Thème 3</span><h3>Énergie & Vitalité</h3><div class="rule-box">Répétition par 3 avec temps d'accueil.</div><div class="exercise-step" id="ex-t3-1"><h4>1. Doigts en Griffe (x3)</h4><div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer</button></div><div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div><div class="exercise-text"><p>Inspirez en levant les mains en griffes, bloquez et contractez, puis expirez sec. <em>Accueil :</em> Énergie (x3).</p></div></div><div class="exercise-step" id="ex-t3-2"><h4>2. Chauffage Corporel (x3)</h4><div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer</button></div><div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div><div class="exercise-text"><p>Frottez vigoureusement les bras en apnée. <em>Accueil :</em> Chaleur (x3).</p></div></div><div class="exercise-step" id="ex-t3-3"><h4>3. Ancrage Racine (3 min)</h4><div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer</button></div><div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div><div class="exercise-text"><p>Mains sur les genoux ou pieds pour ancrer la vitalité terrestre.</p></div></div></div></div>
 
             <div id="t4" class="protocols-container"><button class="back-btn" onclick="backToThemes()">← Retour</button><div class="card"><span class="badge protocole">Thème 4</span><h3>Anti-Burnout & Surmenage</h3><div class="rule-box">Répétition par 3 avec temps d'accueil.</div><div class="exercise-step" id="ex-t4-1"><h4>1. Le Prana (x3)</h4><div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer</button></div><div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div><div class="exercise-text"><p>Mains jointes levées vers le ciel, étirement puis descente lente. <em>Accueil :</em> Harmonie (x3).</p></div></div><div class="exercise-step" id="ex-t4-2"><h4>2. Les Éventails (x3)</h4><div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer</button></div><div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div><div class="exercise-text"><p>Balayer la charge mentale par le mouvement des poignets (x3).</p></div></div><div class="exercise-step" id="ex-t4-3"><h4>3. Reins (4 min)</h4><div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer</button></div><div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div><div class="exercise-text"><p>Mains dans le bas du dos pour soutenir les surrénales.</p></div></div></div></div>
@@ -537,24 +537,26 @@
             }
         }
 
-        // Sauvegarde automatique dans le navigateur
         function saveData() {
             const data = {};
-            document.querySelectorAll('.exercise-step').forEach((step, index) => {
-                const gallery = step.querySelector('.photo-gallery');
-                data[index] = gallery.innerHTML;
+            document.querySelectorAll('.exercise-step').forEach((step) => {
+                const id = step.id;
+                if (id) {
+                    const gallery = step.querySelector('.photo-gallery');
+                    data[id] = gallery.innerHTML;
+                }
             });
             localStorage.setItem('harmonie_photos', JSON.stringify(data));
         }
 
-        // Chargement automatique au démarrage
         function loadSavedData() {
             const saved = localStorage.getItem('harmonie_photos');
             if (saved) {
                 const data = JSON.parse(saved);
-                document.querySelectorAll('.exercise-step').forEach((step, index) => {
-                    if (data[index]) {
-                        step.querySelector('.photo-gallery').innerHTML = data[index];
+                document.querySelectorAll('.exercise-step').forEach((step) => {
+                    const id = step.id;
+                    if (id && data[id]) {
+                        step.querySelector('.photo-gallery').innerHTML = data[id];
                     }
                 });
             }
