@@ -30,8 +30,18 @@
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             color: white;
             text-align: center;
-            padding: 3rem 1rem;
+            padding: 2.5rem 1rem;
             box-shadow: 0 4px 20px rgba(91, 112, 101, 0.15);
+        }
+
+        .app-logo {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 3px solid rgba(255, 255, 255, 0.8);
+            margin-bottom: 1rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
         }
 
         header h1 {
@@ -323,6 +333,7 @@
 <body onload="loadSavedData()">
 
     <header>
+        <img src="https://i49.servimg.com/u/f49/11/31/89/70/picsar11.jpg" alt="Logo Harmonie Intérieure" class="app-logo">
         <h1>Harmonie Intérieure</h1>
         <p>Espace professionnel • Sophrologie & Reiki</p>
     </header>
@@ -1030,7 +1041,6 @@
             document.getElementById(tabId).classList.add('active');
             event.currentTarget.classList.add('active');
 
-            // Si on clique sur l'onglet "15 Thématiques", on s'assure de réafficher la grille des menus et de masquer les fiches
             if (tabId === 'protocoles') {
                 backToThemes();
             }
