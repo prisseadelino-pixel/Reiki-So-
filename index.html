@@ -202,7 +202,6 @@
             font-size: 1.15rem;
         }
 
-        /* --- ZONE PHOTOS MODULABLE (1, 2 ou 3 photos) --- */
         .photo-gallery {
             display: flex;
             gap: 10px;
@@ -228,7 +227,6 @@
             overflow: hidden;
         }
 
-        /* Style lorsque vous glisserez vos balises img dedans */
         .photo-slot img {
             width: 100%;
             height: 100%;
@@ -309,11 +307,9 @@
                     
                     <div class="exercise-step">
                         <h4>1. Sophrologie - Les Éventails (x3)</h4>
-                        <!-- Galerie modulable : mettez 1, 2 ou 3 balises <img> selon vos besoins -->
                         <div class="photo-gallery">
-                            <div class="photo-slot"><img src="images/evantail_1.jpg" alt="Photo 1" onerror="this.style.display='none'">Photo 1</div>
-                            <div class="photo-slot"><img src="images/evantail_2.jpg" alt="Photo 2" onerror="this.style.display='none'">Photo 2</div>
-                            <!-- Supprimez ou ajoutez un bloc .photo-slot si vous voulez 1, 2 ou 3 photos -->
+                            <div class="photo-slot">Photo 1</div>
+                            <div class="photo-slot">Photo 2</div>
                         </div>
                         <div class="exercise-text">
                             <p><strong>Posture :</strong> Debout, pieds écartés de la largeur du bassin, bras le long du corps.</p>
@@ -325,9 +321,9 @@
                     <div class="exercise-step">
                         <h4>2. Sophrologie - Le Pompage des Épaules (x3)</h4>
                         <div class="photo-gallery">
-                            <div class="photo-slot"><img src="" alt="Photo 1" onerror="this.style.display='none'">Photo 1</div>
-                            <div class="photo-slot"><img src="" alt="Photo 2" onerror="this.style.display='none'">Photo 2</div>
-                            <div class="photo-slot"><img src="" alt="Photo 3" onerror="this.style.display='none'">Photo 3</div>
+                            <div class="photo-slot">Photo 1</div>
+                            <div class="photo-slot">Photo 2</div>
+                            <div class="photo-slot">Photo 3</div>
                         </div>
                         <div class="exercise-text">
                             <p><strong>Posture :</strong> Debout, poings fermés, bras le long du corps.</p>
@@ -339,7 +335,7 @@
                     <div class="exercise-step">
                         <h4>3. Reiki - Auto-traitement du Cœur (4 min)</h4>
                         <div class="photo-gallery">
-                            <div class="photo-slot"><img src="" alt="Photo 1" onerror="this.style.display='none'">Photo 1</div>
+                            <div class="photo-slot">Photo 1</div>
                         </div>
                         <div class="exercise-text">
                             <p><strong>Posture :</strong> Assis ou allongé, mains frottées pour activer l'énergie.</p>
@@ -388,14 +384,13 @@
                 </div>
             </div>
 
-            <!-- Les thématiques 3 à 15 possèdent la même structure modulaire de photos et les textes détaillés -->
+            <!-- Thématiques 3 à 15 -->
             <div id="t3" class="protocols-container"><button class="back-btn" onclick="backToThemes()">← Retour</button><div class="card"><span class="badge protocole">Thème 3</span><h3>Énergie & Vitalité</h3><div class="rule-box">Répétition par 3 avec temps d'accueil.</div><div class="exercise-step"><h4>1. Doigts en Griffe (x3)</h4><div class="photo-gallery"><div class="photo-slot">Photo 1</div></div><div class="exercise-text"><p>Inspirez en levant les mains en griffes, bloquez et contractez, puis expirez sec. <em>Accueil :</em> Énergie (x3).</p></div></div><div class="exercise-step"><h4>2. Chauffage Corporel (x3)</h4><div class="photo-gallery"><div class="photo-slot">Photo 1</div></div><div class="exercise-text"><p>Frottez vigoureusement les bras en apnée. <em>Accueil :</em> Chaleur (x3).</p></div></div><div class="exercise-step"><h4>3. Ancrage Racine (3 min)</h4><div class="photo-gallery"><div class="photo-slot">Photo 1</div></div><div class="exercise-text"><p>Mains sur les genoux ou pieds pour ancrer la vitalité terrestre.</p></div></div></div></div>
 
             <div id="t4" class="protocols-container"><button class="back-btn" onclick="backToThemes()">← Retour</button><div class="card"><span class="badge protocole">Thème 4</span><h3>Anti-Burnout & Surmenage</h3><div class="rule-box">Répétition par 3 avec temps d'accueil.</div><div class="exercise-step"><h4>1. Le Prana (x3)</h4><div class="photo-gallery"><div class="photo-slot">Photo 1</div></div><div class="exercise-text"><p>Mains jointes levées vers le ciel, étirement puis descente lente. <em>Accueil :</em> Harmonie (x3).</p></div></div><div class="exercise-step"><h4>2. Les Éventails (x3)</h4><div class="photo-gallery"><div class="photo-slot">Photo 1</div></div><div class="exercise-text"><p>Balayer la charge mentale par le mouvement des poignets (x3).</p></div></div><div class="exercise-step"><h4>3. Reins (4 min)</h4><div class="photo-gallery"><div class="photo-slot">Photo 1</div></div><div class="exercise-text"><p>Mains dans le bas du dos pour soutenir les surrénales.</p></div></div></div></div>
 
             <div id="t5" class="protocols-container"><button class="back-btn" onclick="backToThemes()">← Retour</button><div class="card"><span class="badge protocole">Thème 5</span><h3>Libération Charge Mentale</h3><div class="rule-box">Répétition par 3 avec temps d'accueil.</div><div class="exercise-step"><h4>1. Exercice du Cou (x3)</h4><div class="photo-gallery"><div class="photo-slot">Photo 1</div></div><div class="exercise-text"><p>Inclinisons lentes de la tête en avant et arrière pour détendre la nuque (x3).</p></div></div><div class="exercise-step"><h4>2. Balayage Frontal (x3)</h4><div class="photo-gallery"><div class="photo-slot">Photo 1</div></div><div class="exercise-text"><p>Lisser le front de l'intérieur vers les tempes pour effacer les idées fixes (x3).</p></div></div><div class="exercise-step"><h4>3. Hémisphères Cérébraux (4 min)</h4><div class="photo-gallery"><div class="photo-slot">Photo 1</div></div><div class="exercise-text"><p>Une main sur le front et l'autre à l'arrière pour l'apaisement mental.</p></div></div></div></div>
 
-            <!-- Thématiques 6 à 15 avec la même structure modulaire -->
             <div id="theme-6" class="protocols-container"><button class="back-btn" onclick="backToThemes()">← Retour</button><div class="card"><span class="badge protocole">Thème 6</span><h3>Cœur & Émotions Apaisées</h3><div class="rule-box">Répétition par 3 avec temps d'accueil.</div><div class="exercise-step"><h4>1. Intégration Abdomen (x3)</h4><div class="photo-gallery"><div class="photo-slot">Photo 1</div></div><div class="exercise-text"><p>Relâcher le diaphragme par le souffle abdominal.</p></div></div><div class="exercise-step"><h4>2. Câlin Énergétique (x3)</h4><div class="photo-gallery"><div class="photo-slot">Photo 1</div></div><div class="exercise-text"><p>S'enrouler les bras pour se réconforter.</p></div></div><div class="exercise-step"><h4>3. Grand Auto-Traitement Cœur (5 min)</h4><div class="photo-gallery"><div class="photo-slot">Photo 1</div></div><div class="exercise-text"><p>Imposition sur le cœur et le plexus.</p></div></div></div></div>
 
             <div id="theme-7" class="protocols-container"><button class="back-btn" onclick="backToThemes()">← Retour</button><div class="card"><span class="badge protocole">Thème 7</span><h3>Ancrage & Stabilité</h3><div class="rule-box">Répétition par 3 avec temps d'accueil.</div><div class="exercise-step"><h4>1. Chauffage Corporel (x3)</h4><div class="photo-gallery"><div class="photo-slot">Photo 1</div></div><div class="exercise-text"><p>Activer la circulation sanguine.</p></div></div><div class="exercise-step"><h4>2. Enchaînement Vertical (x3)</h4><div class="photo-gallery"><div class="photo-slot">Photo 1</div></div><div class="exercise-text"><p>Étirement vers le ciel sur la pointe des pieds.</p></div></div><div class="exercise-step"><h4>3. Ancrage Racine (4 min)</h4><div class="photo-gallery"><div class="photo-slot">Photo 1</div></div><div class="exercise-text"><p>Imposition sur les pieds.</p></div></div></div></div>
@@ -412,9 +407,9 @@
 
             <div id="theme-13" class="protocols-container"><button class="back-btn" onclick="backToThemes()">← Retour</button><div class="card"><span class="badge protocole">Thème 13</span><h3>Clarté d'Esprit & Focus</h3><div class="rule-box">Répétition par 3 avec temps d'accueil.</div><div class="exercise-step"><h4>1. L'Équilibre (x3)</h4><div class="photo-gallery"><div class="photo-slot">Photo 1</div></div><div class="exercise-text"><p>Fixer un point.</p></div></div><div class="exercise-step"><h4>2. Doigts en Griffe (x3)</h4><div class="photo-gallery"><div class="photo-slot">Photo 1</div></div><div class="exercise-text"><p>Stimuler l'éveil.</p></div></div><div class="exercise-step"><h4>3. Troisième Œil (4 min)</h4><div class="photo-gallery"><div class="photo-slot">Photo 1</div></div><div class="exercise-text"><p>Purifier le mental.</p></div></div></div></div>
 
-            <div id="theme-14" class="protocols-container"><button class="back-btn" onclick="backToThemes()">← Retour</button><div class="card"><span class="badge protocole">Thème 14</span><h3>Paix Intérieure & Silence</h3><div class="rule-box">Répétition par 3 avec temps d'accueil.</div><div class="exercise-step"><h4>1. Bulle Protection (x3)</h4><div class="photo-gallery"><div class="photo-slot">Photo 1</div></div><div class="exercise-text"><p>Sphère protectrice.</p></div></div><div class="exercise-step"><h4>2. Nettoyage Aura (x3)</h4><div class="photo-gallery"><div class="photo-slot">Photo 1</div></div><div class="exercise-text"><p>Purifier l'espace.</p></div></div><div class="exercise-step"><h4>3. Silence du Cœur (4 min)</h4><div class="photo-gallery"><div class="photo-slot">Photo 1</div></div><div class="exercise-text"><p>Recentrage.</p></div></div></div></div>
+            <div id="theme-14" class="protocols-container"><button class="back-btn" onclick="backToThemes()">← Retour</button><div class="card"><span class="badge protocole">Thème 14</span><h3>Paix Intérieure & Silence</h3><div class="rule-box">Répétition par 3 avec temps d'accueil.</div><div class="exercise-step"><h4>1. Bulle Protection (x3)</h4><div class="photo-gallery"><div class="photo-slot">Photo 1</div></div><div class="exercise-text"><p>Sphère protectrice.</p></div></div><div class="exercise-step"><h4>2. Nettoyage Aura (x3)</h4><div class="photo-gallery"><div class="photo-slot">Photo 1</div></div><div class="exercise-text"><p>Purifier l'espace.</p></div></div><div class="exercise-step"><h4>3. Silence du Cœur (4 min)</h4><div class="photo-gallery"><div class="photo-slot">Photo 1</div></div><div class="exercise-text"><p>Silence.</p></div></div></div></div>
 
-            <div id="theme-15" class="protocols-container"><button class="back-btn" onclick="backToThemes()">← Retour</button><div class="card"><span class="badge protocole">Thème 15</span><h3>Protocole Harmonisation Globale</h3><div class="rule-box">Répétition par 3 avec temps d'accueil.</div><div class="exercise-step"><h4>1. Chauffage Corporel (x3)</h4><div class="photo-gallery"><div class="photo-slot">Photo 1</div></div><div class="exercise-text"><p>Relancer l'énergie.</p></div></div><div class="exercise-step"><h4>2. Enchaînement Vertical (x3)</h4><div class="photo-gallery"><div class="photo-slot">Photo 1</div></div><div class="exercise-text"><p>Unifier le corps.</p></div></div><div class="exercise-step"><h4>3. Circuit Chakras (6 min)</h4><div class="photo-gallery"><div class="photo-slot">Photo 1</div></div><div class="exercise-text"><p>Passage sur les centres majeurs.</p></div></div></div></div>
+            <div id="theme-15" class="protocols-container"><button class="back-btn" onclick="backToThemes()">← Retour</button><div class="card"><span class="badge protocole">Thème 15</span><h3>Protocole Harmonisation Globale</h3><div class="rule-box">Répétition par 3 avec temps d'accueil.</div><div class="exercise-step"><h4>1. Chauffage Corporel (x3)</h4><div class="photo-gallery"><div class="photo-slot">Photo 1</div></div><div class="exercise-text"><p>Relancer l'énergie globale.</p></div></div><div class="exercise-step"><h4>2. Enchaînement Vertical (x3)</h4><div class="photo-gallery"><div class="photo-slot">Photo 1</div></div><div class="exercise-text"><p>Unifier tout le corps.</p></div></div><div class="exercise-step"><h4>3. Circuit Chakras (6 min)</h4><div class="photo-gallery"><div class="photo-slot">Photo 1</div></div><div class="exercise-text"><p>Passage sur les centres majeurs.</p></div></div></div></div>
         </div>
 
     </div>
