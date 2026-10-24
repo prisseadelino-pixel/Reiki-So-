@@ -1,3 +1,239 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harmonie Intérieure : Sophrologie & Reiki</title>
+    <style>
+        :root {
+            --primary-color: #7b52ae;
+            --secondary-color: #a084e8;
+            --bg-color: #f9f8fc;
+            --card-bg: #ffffff;
+            --text-color: #333333;
+            --accent-color: #e8dff5;
+            --tag-proto: #e8f5e9;
+            --tag-proto-text: #2e7d32;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            text-align: center;
+            padding: 2.5rem 1rem;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.2rem;
+        }
+
+        header p {
+            margin-top: 0.5rem;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .nav-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            background-color: var(--accent-color);
+            border: none;
+            padding: 0.8rem 1.5rem;
+            font-size: 1rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .tab-btn.active, .tab-btn:hover {
+            background-color: var(--primary-color);
+            color: white;
+            box-shadow: 0 4px 10px rgba(123, 82, 174, 0.3);
+        }
+
+        .section-content {
+            display: none;
+        }
+
+        .section-content.active {
+            display: block;
+        }
+
+        .theme-selector {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .theme-card {
+            background: var(--card-bg);
+            border: 2px solid var(--accent-color);
+            border-radius: 12px;
+            padding: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: left;
+        }
+
+        .theme-card:hover {
+            border-color: var(--primary-color);
+            background-color: var(--accent-color);
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(123, 82, 174, 0.15);
+        }
+
+        .theme-card h4 {
+            margin: 0 0 0.5rem 0;
+            color: var(--primary-color);
+            font-size: 1.1rem;
+        }
+
+        .theme-card p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .protocols-container {
+            display: none;
+        }
+
+        .protocols-container.active {
+            display: block;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .back-btn {
+            background: none;
+            border: none;
+            color: var(--primary-color);
+            font-weight: bold;
+            cursor: pointer;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .back-btn:hover {
+            text-decoration: underline;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            border-left: 5px solid var(--primary-color);
+            position: relative;
+        }
+
+        .card h3 {
+            margin-top: 0;
+            color: var(--primary-color);
+            font-size: 1.4rem;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-bottom: 0.8rem;
+        }
+
+        .badge.protocole {
+            background-color: var(--tag-proto);
+            color: var(--tag-proto-text);
+        }
+
+        .rule-box {
+            background-color: #f3e5f5;
+            border-left: 4px solid var(--primary-color);
+            padding: 0.8rem 1rem;
+            margin-bottom: 1rem;
+            border-radius: 4px;
+            font-size: 0.95rem;
+        }
+
+        .exercise-step {
+            background-color: var(--bg-color);
+            padding: 1.2rem;
+            border-radius: 8px;
+            margin-top: 1.2rem;
+            border: 1px solid #e8dff5;
+        }
+
+        .exercise-step h4 {
+            margin: 0 0 0.8rem 0;
+            color: var(--primary-color);
+            font-size: 1.15rem;
+        }
+
+        .photo-controls {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .photo-btn {
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            border: none;
+            padding: 0.3rem 0.8rem;
+            font-size: 0.85rem;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .photo-btn:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .photo-gallery {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        /* Le cadre s'adapte à la photo */
         .photo-slot {
             display: inline-block;
             background: #ffffff;
@@ -8,9 +244,14 @@
             text-align: center;
             color: #777;
             font-size: 0.85rem;
-            cursor: position;
+            cursor: pointer;
             position: relative;
             overflow: hidden;
+            min-width: 120px;
+            min-height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .photo-slot input[type="file"] {
@@ -23,12 +264,277 @@
             cursor: pointer;
         }
 
-        /* L'image s'adapte naturellement et le cadre suit ses proportions */
         .photo-slot img {
             display: block;
             max-width: 100%;
             height: auto;
-            max-height: 220px; /* Limite la hauteur maximale pour garder une belle harmonie */
+            max-height: 250px;
             border-radius: 6px;
             margin: 0 auto;
         }
+
+        .exercise-text p {
+            margin: 0 0 0.5rem 0;
+            font-size: 0.95rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1.5rem;
+            background-color: #eee;
+            color: #666;
+            margin-top: 3rem;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Harmonie Intérieure</h1>
+        <p>Méthode basée par des professionnels sur la Sophrologie et le Reiki</p>
+    </header>
+
+    <div class="container">
+        <!-- Barre de navigation -->
+        <div class="nav-tabs">
+            <button class="tab-btn active" onclick="switchTab('accueil', event)">Accueil</button>
+            <button class="tab-btn" onclick="switchTab('protocoles', event)">15 Thématiques</button>
+        </div>
+
+        <!-- Section Accueil -->
+        <div id="accueil" class="section-content active">
+            <div class="card">
+                <h3>Bienvenue dans votre application bien-être</h3>
+                <p>Cet outil intègre une méthode professionnelle combinant la <strong>sophrologie</strong> et le <strong>Reiki</strong>.</p>
+                <p>Utilisez les boutons <strong>[+] Ajouter photo</strong> et <strong>[-] Retirer photo</strong> pour gérer vos visuels. Le cadre s'adaptera automatiquement aux proportions de vos photos.</p>
+            </div>
+        </div>
+
+        <!-- Section 15 Thématiques -->
+        <div id="protocoles" class="section-content">
+            <h2>Choisissez l'une de nos 15 Thématiques</h2>
+            <p>Cliquez sur une thématique pour consulter les détails et gérer vos photos :</p>
+
+            <div id="theme-menu" class="theme-selector">
+                <div class="theme-card" onclick="selectTheme('t1')"><h4>1. 🧘‍♂️ Lâcher-prise & Anti-Stress</h4><p>Évacuer les tensions et calmer l'agitation.</p></div>
+                <div class="theme-card" onclick="selectTheme('t2')"><h4>2. 🌙 Sommeil & Sérénité</h4><p>Préparer le corps à une nuit profonde.</p></div>
+                <div class="theme-card" onclick="selectTheme('t3')"><h4>3. ⚡ Énergie & Vitalité</h4><p>Stimuler l'élan vital au réveil.</p></div>
+                <div class="theme-card" onclick="selectTheme('t4')"><h4>4. 🛡️ Anti-Burnout & Surmenage</h4><p>Déconnecter d'une charge de travail intense.</p></div>
+                <div class="theme-card" onclick="selectTheme('t5')"><h4>5. 🧠 Libération Charge Mentale</h4><p>Stopper le flot des pensées parasites.</p></div>
+                <div class="theme-card" onclick="selectTheme('theme-6')"><h4>6. 💕 Cœur & Émotions Apaisées</h4><p>Traverser les turbulences émotionnelles.</p></div>
+                <div class="theme-card" onclick="selectTheme('theme-7')"><h4>7. 🌳 Ancrage & Stabilité</h4><p>Se sentir enraciné et solide.</p></div>
+                <div class="theme-card" onclick="selectTheme('theme-8')"><h4>8. 🚀 Coup de Boost Énergétique</h4><p>Vaincre la torpeur de milieu de journée.</p></div>
+                <div class="theme-card" onclick="selectTheme('theme-9')"><h4>9. 🦴 Relâchement Dos & Nuque</h4><p>Soulager les crispations sédentaires.</p></div>
+                <div class="theme-card" onclick="selectTheme('theme-10')"><h4>10. 🎯 Gestion du Trac & Examens</h4><p>Contrôler la respiration avant un défi.</p></div>
+                <div class="theme-card" onclick="selectTheme('theme-11')"><h4>11. 🌸 Douceur & Auto-Bienveillance</h4><p>Cultiver l'amour de soi.</p></div>
+                <div class="theme-card" onclick="selectTheme('theme-12')"><h4>12. 🏃‍♂️ Récupération Post-Effort</h4><p>Redescendre en pression après le sport.</p></div>
+                <div class="theme-card" onclick="selectTheme('theme-13')"><h4>13. 💡 Clarté d'Esprit & Focus</h4><p>Optimiser la concentration intellectuelle.</p></div>
+                <div class="theme-card" onclick="selectTheme('theme-14')"><h4>14. 🤫 Paix Intérieure & Silence</h4><p>S'isoler du monde et s'offrir une bulle.</p></div>
+                <div class="theme-card" onclick="selectTheme('theme-15')"><h4>15. ✨ Harmonisation Globale</h4><p>La séance complète corps-esprit.</p></div>
+            </div>
+
+            <!-- THÉMATIQUE 1 -->
+            <div id="t1" class="protocols-container">
+                <button class="back-btn" onclick="backToThemes()">← Retour aux thématiques</button>
+                <div class="card">
+                    <span class="badge protocole">Thématique 1 / 15</span>
+                    <h3>Séance Lâcher-prise & Anti-Stress</h3>
+                    <p><strong>Objectif :</strong> Évacuer les tensions physiques et mentales accumulées dans la journée.</p>
+                    <div class="rule-box">Règle d'or : Répétez chaque exercice de sophrologie 3 fois de suite, avec un temps de pause les yeux fermés entre chaque répétition pour accueillir les sensations.</div>
+                    
+                    <div class="exercise-step">
+                        <h4>1. Sophrologie - Les Éventails (x3)</h4>
+                        <div class="photo-controls">
+                            <button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter photo</button>
+                            <button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer photo</button>
+                        </div>
+                        <div class="photo-gallery">
+                            <div class="photo-slot" onclick="this.querySelector('input').click()">
+                                <span>+ Photo</span>
+                                <input type="file" accept="image/*" onchange="previewImage(event, this)">
+                            </div>
+                        </div>
+                        <div class="exercise-text">
+                            <p><strong>Posture :</strong> Debout, pieds écartés de la largeur du bassin, bras le long du corps.</p>
+                            <p><strong>Exécution :</strong> Inspirez profondément par le nez en levant les mains vers l'avant, poignets souples. Bloquez votre respiration et agitez vivement vos mains comme des éventails pour balayer la fatigue. Soufflez fortement par la bouche en relâchant brusquement les bras le long du corps.</p>
+                            <p><em>Temps d'accueil :</em> Fermez les yeux 30 secondes pour observer les picotements dans les mains, la circulation de l'énergie et la détente s'installer (recommencer 2 fois).</p>
+                        </div>
+                    </div>
+
+                    <div class="exercise-step">
+                        <h4>2. Sophrologie - Le Pompage des Épaules (x3)</h4>
+                        <div class="photo-controls">
+                            <button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter photo</button>
+                            <button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer photo</button>
+                        </div>
+                        <div class="photo-gallery">
+                            <div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div>
+                        </div>
+                        <div class="exercise-text">
+                            <p><strong>Posture :</strong> Debout, poings fermés, bras le long du corps.</p>
+                            <p><strong>Exécution :</strong> Inspirez par le nez, bloquez l'air et effectuez de rapides hausses et bas des épaules (mouvement de pompe). Expirez d'un coup sec par la bouche en ouvrant grand les mains pour rejeter toutes les tensions hors du corps.</p>
+                            <p><em>Temps d'accueil :</em> Accueillez le relâchement des trapèzes et la lourdeur bienfaisante des bras (recommencer 2 fois).</p>
+                        </div>
+                    </div>
+
+                    <div class="exercise-step">
+                        <h4>3. Reiki - Auto-traitement du Cœur (4 min)</h4>
+                        <div class="photo-controls">
+                            <button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter photo</button>
+                            <button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer photo</button>
+                        </div>
+                        <div class="photo-gallery">
+                            <div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div>
+                        </div>
+                        <div class="exercise-text">
+                            <p><strong>Posture :</strong> Assis ou allongé, mains frottées pour activer l'énergie.</p>
+                            <p><strong>Exécution :</strong> Posez une main à plat au centre de la poitrine (chakra du cœur) et l'autre main sur le plexus solaire. Respirez calmement par le ventre en visualisant une douce chaleur dorée qui enveloppe votre espace émotionnel et dissipe le stress.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- THÉMATIQUE 2 -->
+            <div id="t2" class="protocols-container">
+                <button class="back-btn" onclick="backToThemes()">← Retour aux thématiques</button>
+                <div class="card">
+                    <span class="badge protocole">Thématique 2 / 15</span>
+                    <h3>Protocole Sommeil & Sérénité</h3>
+                    <p><strong>Objectif :</strong> Relâcher la fatigue et préparer le corps à une nuit profonde.</p>
+                    <div class="rule-box">Règle d'or : Répétition par 3 avec temps d'accueil.</div>
+                    
+                    <div class="exercise-step">
+                        <h4>1. Sophrologie - La Rotation des Épaules (x3)</h4>
+                        <div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter photo</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer photo</button></div>
+                        <div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div>
+                        <div class="exercise-text">
+                            <p><strong>Posture :</strong> Debout, bras ballants.</p>
+                            <p><strong>Exécution :</strong> Inspirez par le nez en levant les épaules vers les oreilles, bloquez l'air et faites pivoter les épaules vers l'arrière en décrivant de grands cercles souples. Expirez par la bouche en ramenant les épaules en position basse.</p>
+                            <p><em>Temps d'accueil :</em> Sentez l'espace dans la poitrine et le haut du dos détendu (x3).</p>
+                        </div>
+                    </div>
+
+                    <div class="exercise-step">
+                        <h4>2. Sophrologie - L'Intégration de l'Abdomen (x3)</h4>
+                        <div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter photo</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer photo</button></div>
+                        <div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div>
+                        <div class="exercise-text">
+                            <p><strong>Posture :</strong> Debout ou assis, mains posées délicatement sur le ventre.</p>
+                            <p><strong>Exécution :</strong> Inspirez profondément par le nez en gonflant le ventre comme un ballon souple. Bloquez un instant, puis expirez très lentement et longuement par la bouche en le dégonflant.</p>
+                            <p><em>Temps d'accueil :</em> Appréciez la respiration qui s'apaise et le diaphragme détendu (x3).</p>
+                        </div>
+                    </div>
+
+                    <div class="exercise-step">
+                        <h4>3. Reiki - Harmonisation du Troisième Œil (3 min)</h4>
+                        <div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter photo</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer photo</button></div>
+                        <div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div>
+                        <div class="exercise-text">
+                            <p><strong>Exécution :</strong> Placez le bout de vos doigts sur le front (entre les sourcils) et l'autre main à l'arrière de la tête (occiput). Laissez l'énergie dissiper les ruminations mentales avant le coucher.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Thématiques 3 à 15 -->
+            <div id="t3" class="protocols-container"><button class="back-btn" onclick="backToThemes()">← Retour</button><div class="card"><span class="badge protocole">Thème 3</span><h3>Énergie & Vitalité</h3><div class="rule-box">Répétition par 3 avec temps d'accueil.</div><div class="exercise-step"><h4>1. Doigts en Griffe (x3)</h4><div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer</button></div><div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div><div class="exercise-text"><p>Inspirez en levant les mains en griffes, bloquez et contractez, puis expirez sec. <em>Accueil :</em> Énergie (x3).</p></div></div><div class="exercise-step"><h4>2. Chauffage Corporel (x3)</h4><div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer</button></div><div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div><div class="exercise-text"><p>Frottez vigoureusement les bras en apnée. <em>Accueil :</em> Chaleur (x3).</p></div></div><div class="exercise-step"><h4>3. Ancrage Racine (3 min)</h4><div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer</button></div><div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div><div class="exercise-text"><p>Mains sur les genoux ou pieds pour ancrer la vitalité terrestre.</p></div></div></div></div>
+
+            <div id="t4" class="protocols-container"><button class="back-btn" onclick="backToThemes()">← Retour</button><div class="card"><span class="badge protocole">Thème 4</span><h3>Anti-Burnout & Surmenage</h3><div class="rule-box">Répétition par 3 avec temps d'accueil.</div><div class="exercise-step"><h4>1. Le Prana (x3)</h4><div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer</button></div><div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div><div class="exercise-text"><p>Mains jointes levées vers le ciel, étirement puis descente lente. <em>Accueil :</em> Harmonie (x3).</p></div></div><div class="exercise-step"><h4>2. Les Éventails (x3)</h4><div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer</button></div><div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div><div class="exercise-text"><p>Balayer la charge mentale par le mouvement des poignets (x3).</p></div></div><div class="exercise-step"><h4>3. Reins (4 min)</h4><div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer</button></div><div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div><div class="exercise-text"><p>Mains dans le bas du dos pour soutenir les surrénales.</p></div></div></div></div>
+
+            <div id="t5" class="protocols-container"><button class="back-btn" onclick="backToThemes()">← Retour</button><div class="card"><span class="badge protocole">Thème 5</span><h3>Libération Charge Mentale</h3><div class="rule-box">Répétition par 3 avec temps d'accueil.</div><div class="exercise-step"><h4>1. Exercice du Cou (x3)</h4><div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer</button></div><div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div><div class="exercise-text"><p>Inclinisons lentes de la tête en avant et arrière pour détendre la nuque (x3).</p></div></div><div class="exercise-step"><h4>2. Balayage Frontal (x3)</h4><div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer</button></div><div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div><div class="exercise-text"><p>Lisser le front de l'intérieur vers les tempes pour effacer les idées fixes (x3).</p></div></div><div class="exercise-step"><h4>3. Hémisphères Cérébraux (4 min)</h4><div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer</button></div><div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div><div class="exercise-text"><p>Une main sur le front et l'autre à l'arrière pour l'apaisement mental.</p></div></div></div></div>
+
+            <div id="theme-6" class="protocols-container"><button class="back-btn" onclick="backToThemes()">← Retour</button><div class="card"><span class="badge protocole">Thème 6</span><h3>Cœur & Émotions Apaisées</h3><div class="rule-box">Répétition par 3 avec temps d'accueil.</div><div class="exercise-step"><h4>1. Intégration Abdomen (x3)</h4><div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer</button></div><div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div><div class="exercise-text"><p>Relâcher le diaphragme par le souffle abdominal.</p></div></div><div class="exercise-step"><h4>2. Câlin Énergétique (x3)</h4><div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer</button></div><div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div><div class="exercise-text"><p>S'enrouler les bras pour se réconforter.</p></div></div><div class="exercise-step"><h4>3. Grand Auto-Traitement Cœur (5 min)</h4><div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer</button></div><div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div><div class="exercise-text"><p>Imposition sur le cœur et le plexus.</p></div></div></div></div>
+
+            <div id="theme-7" class="protocols-container"><button class="back-btn" onclick="backToThemes()">← Retour</button><div class="card"><span class="badge protocole">Thème 7</span><h3>Ancrage & Stabilité</h3><div class="rule-box">Répétition par 3 avec temps d'accueil.</div><div class="exercise-step"><h4>1. Chauffage Corporel (x3)</h4><div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer</button></div><div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div><div class="exercise-text"><p>Activer la circulation sanguine.</p></div></div><div class="exercise-step"><h4>2. Enchaînement Vertical (x3)</h4><div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer</button></div><div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div><div class="exercise-text"><p>Étirement vers le ciel sur la pointe des pieds.</p></div></div><div class="exercise-step"><h4>3. Ancrage Racine (4 min)</h4><div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer</button></div><div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div><div class="exercise-text"><p>Imposition sur les pieds.</p></div></div></div></div>
+
+            <div id="theme-8" class="protocols-container"><button class="back-btn" onclick="backToThemes()">← Retour</button><div class="card"><span class="badge protocole">Thème 8</span><h3>Coup de Boost Énergétique</h3><div class="rule-box">Répétition par 3 avec temps d'accueil.</div><div class="exercise-step"><h4>1. Doigts en Griffe (x3)</h4><div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer</button></div><div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div><div class="exercise-text"><p>Stimuler la vitalité.</p></div></div><div class="exercise-step"><h4>2. Le Soufflet (x3)</h4><div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer</button></div><div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div><div class="exercise-text"><p>Ventiler l'organisme.</p></div></div><div class="exercise-step"><h4>3. Plexus Solaire (3 min)</h4><div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer</button></div><div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div><div class="exercise-text"><p>Redonner force et motivation.</p></div></div></div></div>
+
+            <div id="theme-9" class="protocols-container"><button class="back-btn" onclick="backToThemes()">← Retour</button><div class="card"><span class="badge protocole">Thème 9</span><h3>Relâchement Dos & Nuque</h3><div class="rule-box">Répétition par 3 avec temps d'accueil.</div><div class="exercise-step"><h4>1. Exercice du Cou (x3)</h4><div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer</button></div><div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div><div class="exercise-text"><p>Dénouer les cervicales.</p></div></div><div class="exercise-step"><h4>2. Tronc d'Arbre (x3)</h4><div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer</button></div><div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div><div class="exercise-text"><p>Relâcher les lombaires.</p></div></div><div class="exercise-step"><h4>3. Traitement du Dos (4 min)</h4><div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer</button></div><div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div><div class="exercise-text"><p>Imposition vertébrale.</p></div></div></div></div>
+
+            <div id="theme-10" class="protocols-container"><button class="back-btn" onclick="backToThemes()">← Retour</button><div class="card"><span class="badge protocole">Thème 10</span><h3>Gestion du Trac & Examens</h3><div class="rule-box">Répétition par 3 avec temps d'accueil.</div><div class="exercise-step"><h4>1. Sangle Abdominale (x3)</h4><div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer</button></div><div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div><div class="exercise-text"><p>Éliminer la boule au ventre.</p></div></div><div class="exercise-step"><h4>2. Pompage Épaules (x3)</h4><div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer</button></div><div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div><div class="exercise-text"><p>Évacuer la pression.</p></div></div><div class="exercise-step"><h4>3. Traitement de la Gorge (3 min)</h4><div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer</button></div><div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div><div class="exercise-text"><p>Fluidifier la parole.</p></div></div></div></div>
+
+            <div id="theme-11" class="protocols-container"><button class="back-btn" onclick="backToThemes()">← Retour</button><div class="card"><span class="badge protocole">Thème 11</span><h3>Douceur & Auto-Bienveillance</h3><div class="rule-box">Répétition par 3 avec temps d'accueil.</div><div class="exercise-step"><h4>1. Intégration Abdomen (x3)</h4><div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer</button></div><div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div><div class="exercise-text"><p>Recentrage par le souffle.</p></div></div><div class="exercise-step"><h4>2. Câlin Énergétique (x3)</h4><div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer</button></div><div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div><div class="exercise-text"><p>S'envelopper de tendresse.</p></div></div><div class="exercise-step"><h4>3. Auto-traitement Cœur (5 min)</h4><div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer</button></div><div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div><div class="exercise-text"><p>Bienveillance.</p></div></div></div></div>
+
+            <div id="theme-12" class="protocols-container"><button class="back-btn" onclick="backToThemes()">← Retour</button><div class="card"><span class="badge protocole">Thème 12</span><h3>Récupération Post-Effort</h3><div class="rule-box">Répétition par 3 avec temps d'accueil.</div><div class="exercise-step"><h4>1. Le Staccato (x3)</h4><div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer</button></div><div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div><div class="exercise-text"><p>Secouer les membres.</p></div></div><div class="exercise-step"><h4>2. Pompage Épaules (x3)</h4><div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer</button></div><div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div><div class="exercise-text"><p>Normaliser le tonus.</p></div></div><div class="exercise-step"><h4>3. Mains et Pieds (4 min)</h4><div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer</button></div><div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div><div class="exercise-text"><p>Libérer les flux.</p></div></div></div></div>
+
+            <div id="theme-13" class="protocols-container"><button class="back-btn" onclick="backToThemes()">← Retour</button><div class="card"><span class="badge protocole">Thème 13</span><h3>Clarté d'Esprit & Focus</h3><div class="rule-box">Répétition par 3 avec temps d'accueil.</div><div class="exercise-step"><h4>1. L'Équilibre (x3)</h4><div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer</button></div><div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div><div class="exercise-text"><p>Fixer un point.</p></div></div><div class="exercise-step"><h4>2. Doigts en Griffe (x3)</h4><div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer</button></div><div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div><div class="exercise-text"><p>Stimuler l'éveil.</p></div></div><div class="exercise-step"><h4>3. Troisième Œil (4 min)</h4><div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer</button></div><div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div><div class="exercise-text"><p>Purifier le mental.</p></div></div></div></div>
+
+            <div id="theme-14" class="protocols-container"><button class="back-btn" onclick="backToThemes()">← Retour</button><div class="card"><span class="badge protocole">Thème 14</span><h3>Paix Intérieure & Silence</h3><div class="rule-box">Répétition par 3 avec temps d'accueil.</div><div class="exercise-step"><h4>1. Bulle Protection (x3)</h4><div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer</button></div><div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div><div class="exercise-text"><p>Sphère protectrice.</p></div></div><div class="exercise-step"><h4>2. Nettoyage Aura (x3)</h4><div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer</button></div><div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div><div class="exercise-text"><p>Purifier l'espace.</p></div></div><div class="exercise-step"><h4>3. Silence du Cœur (4 min)</h4><div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer</button></div><div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div><div class="exercise-text"><p>Silence.</p></div></div></div></div>
+
+            <div id="theme-15" class="protocols-container"><button class="back-btn" onclick="backToThemes()">← Retour</button><div class="card"><span class="badge protocole">Thème 15</span><h3>Protocole Harmonisation Globale</h3><div class="rule-box">Répétition par 3 avec temps d'accueil.</div><div class="exercise-step"><h4>1. Chauffage Corporel (x3)</h4><div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer</button></div><div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div><div class="exercise-text"><p>Relancer l'énergie globale.</p></div></div><div class="exercise-step"><h4>2. Enchaînement Vertical (x3)</h4><div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer</button></div><div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div><div class="exercise-text"><p>Unifier tout le corps.</p></div></div><div class="exercise-step"><h4>3. Circuit Chakras (6 min)</h4><div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer</button></div><div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div><div class="exercise-text"><p>Passage sur les centres majeurs.</p></div></div></div></div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>Créé avec soin pour votre bien-être • HTML / CSS / JavaScript</p>
+    </footer>
+
+    <script>
+        function switchTab(tabId, event) {
+            const sections = document.querySelectorAll('.section-content');
+            sections.forEach(sec => sec.classList.remove('active'));
+
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+
+            document.getElementById(tabId).classList.add('active');
+            event.currentTarget.classList.add('active');
+        }
+
+        function selectTheme(themeId) {
+            document.getElementById('theme-menu').style.display = 'none';
+            const containers = document.querySelectorAll('.protocols-container');
+            containers.forEach(cont => cont.classList.remove('active'));
+            document.getElementById(themeId).classList.add('active');
+        }
+
+        function backToThemes() {
+            const containers = document.querySelectorAll('.protocols-container');
+            containers.forEach(cont => cont.classList.remove('active'));
+            document.getElementById('theme-menu').style.display = 'grid';
+        }
+
+        function addPhotoSlot(btn) {
+            const stepDiv = btn.closest('.exercise-step');
+            const gallery = stepDiv.querySelector('.photo-gallery');
+            const newSlot = document.createElement('div');
+            newSlot.className = 'photo-slot';
+            newSlot.setAttribute('onclick', "this.querySelector('input').click()");
+            newSlot.innerHTML = '<span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)">';
+            gallery.appendChild(newSlot);
+        }
+
+        function removePhotoSlot(btn) {
+            const stepDiv = btn.closest('.exercise-step');
+            const gallery = stepDiv.querySelector('.photo-gallery');
+            const slots = gallery.querySelectorAll('.photo-slot');
+            if (slots.length > 1) {
+                gallery.removeChild(slots[slots.length - 1]);
+            }
+        }
+
+        function previewImage(event, input) {
+            if (event.stopPropagation) event.stopPropagation();
+            const slot = input.parentElement;
+            const file = input.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    let img = slot.querySelector('img');
+                    if (!img) {
+                        img = document.createElement('img');
+                        slot.appendChild(img);
+                    }
+                    img.src = e.target.result;
+                    const span = slot.querySelector('span');
+                    if (span) span.style.display = 'none';
+                }
+                reader.readAsDataURL(file);
+            }
+        }
+    </script>
+
+</body>
+</html>
