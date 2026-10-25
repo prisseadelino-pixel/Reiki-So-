@@ -1316,7 +1316,6 @@
         }
 
         function saveData() {
-            // Sauvegarde globale de toute la structure HTML des thématiques (incluant exercices, textes et photos)
             const protocolsData = {};
             document.querySelectorAll('.protocols-container').forEach((cont) => {
                 const id = cont.id;
@@ -1326,14 +1325,12 @@
             });
             localStorage.setItem('harmonie_protocols_html', JSON.stringify(protocolsData));
 
-            // Sauvegarde des en-têtes et textes globaux
             const editableGlobals = document.querySelectorAll('header [contenteditable="true"], #accueil [contenteditable="true"], footer [contenteditable="true"]');
             const globalsData = Array.from(editableGlobals).map(el => el.innerHTML);
             localStorage.setItem('harmonie_globals', JSON.stringify(globalsData));
         }
 
         function loadSavedData() {
-            // Charger les protocoles et exercices personnalisés
             const savedProtocols = localStorage.getItem('harmonie_protocols_html');
             if (savedProtocols) {
                 const data = JSON.parse(savedProtocols);
@@ -1345,7 +1342,6 @@
                 });
             }
 
-            // Charger les textes globaux modifiés
             const savedGlobals = localStorage.getItem('harmonie_globals');
             if (savedGlobals) {
                 const globalsData = JSON.parse(savedGlobals);
