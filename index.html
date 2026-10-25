@@ -11,16 +11,16 @@
 
     <style>
         :root {
-            --primary-color: #5b7065;      /* Vert sauge profond et zen */
-            --secondary-color: #8fa396;    /* Vert sauge clair */
-            --bg-color: #f7f6f2;           /* Blanc cassé / lin naturel */
-            --card-bg: #ffffff;            /* Blanc pur */
-            --text-color: #2c3531;         /* Gris ardoise très doux */
-            --accent-color: #e3ede6;       /* Vert pastel très clair pour les badges */
-            --border-color: #d8e2dc;       /* Bordure fine et élégante */
+            --primary-color: #5b7065;      
+            --secondary-color: #8fa396;    
+            --bg-color: #f7f6f2;           
+            --card-bg: #ffffff;            
+            --text-color: #2c3531;         
+            --accent-color: #e3ede6;       
+            --border-color: #d8e2dc;       
             --tag-proto: #eaf1ed;
             --tag-proto-text: #3e5246;
-            --danger-color: #d97777;       /* Rouge doux pour suppression */
+            --danger-color: #d97777;       
         }
 
         body {
@@ -1223,7 +1223,7 @@
     </footer>
 
     <script>
-        // CONFIGURATION FIREBASE (Vos clés personnelles)
+        // CONFIGURATION FIREBASE
         const firebaseConfig = {
             apiKey: "AIzaSyDb0Eaizj1NQD5G_USq0inXB...",
             authDomain: "reiki-so.firebaseapp.com",
@@ -1233,7 +1233,6 @@
             appId: "1:362947198803:web:05a7cdf80f1..."
         };
 
-        // Initialisation de Firebase
         firebase.initializeApp(firebaseConfig);
         const db = firebase.firestore();
         const docId = "donnees_harmonie";
@@ -1314,6 +1313,7 @@
             }
         }
 
+        // REDimensionnement automatique et propre des photos pour la sauvegarde
         function previewImage(event, input) {
             if (event.stopPropagation) event.stopPropagation();
             const slot = input.parentElement;
@@ -1321,21 +1321,47 @@
             if (file) {
                 const reader = new FileReader();
                 reader.onload = function(e) {
-                    let img = slot.querySelector('img');
-                    if (!img) {
-                        img = document.createElement('img');
-                        slot.appendChild(img);
+                    const img = new Image();
+                    img.onload = function() {
+                        const canvas = document.createElement('canvas');
+                        const ctx = canvas.getContext('2d');
+                        
+                        // Redimensionnement intelligent pour alléger le poids
+                        let width = img.width;
+                        let height = img.height;
+                        const maxDim = 600;
+                        if (width > height && width > maxDim) {
+                            height *= maxDim / width;
+                            width = maxDim;
+                        } else if (height > maxDim) {
+                            width *= maxDim / height;
+                            height = maxDim;
+                        }
+                        
+                        canvas.width = width;
+                        canvas.height = height;
+                        ctx.drawImage(img, 0, 0, width, height);
+                        
+                        const compressedDataUrl = canvas.toDataURL('image/jpeg', 0.7);
+
+                        let slotImg = slot.querySelector('img');
+                        if (!slotImg) {
+                            slotImg = document.createElement('img');
+                            slot.appendChild(slotImg);
+                        }
+                        slotImg.src = compressedDataUrl;
+                        const span = slot.querySelector('span');
+                        if (span) span.style.display = 'none';
+                        
+                        saveData();
                     }
                     img.src = e.target.result;
-                    const span = slot.querySelector('span');
-                    if (span) span.style.display = 'none';
-                    saveData();
                 }
                 reader.readAsDataURL(file);
             }
         }
 
-        // ENREGISTREMENT SIMPLIFIÉ
+        // ENREGISTREMENT DANS FIREBASE
         function saveData() {
             const protocolsData = {};
             document.querySelectorAll('.protocols-container').forEach((cont) => {
@@ -1358,7 +1384,7 @@
         }
 
         // CHARGEMENT DES DONNÉES
-        function loadSavedData() {
+            function loadSavedData() {
             db.collection("appData").doc(docId).get().then((doc) => {
                 if (doc.exists) {
                     const data = doc.data();
