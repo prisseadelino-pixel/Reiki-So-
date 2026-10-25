@@ -1335,7 +1335,7 @@
             }
         }
 
-        // Enregistrement automatique sur Firebase Firestore
+        // ENREGISTREMENT SIMPLIFIÉ
         function saveData() {
             const protocolsData = {};
             document.querySelectorAll('.protocols-container').forEach((cont) => {
@@ -1345,28 +1345,23 @@
                 }
             });
 
-            const editableGlobals = document.querySelectorAll('header [contenteditable="true"], #accueil [contenteditable="true"], footer [contenteditable="true"]');
-            const globalsData = Array.from(editableGlobals).map(el => el.innerHTML);
-
             db.collection("appData").doc(docId).set({
                 protocols: protocolsData,
-                globals: globalsData,
-                updatedAt: firebase.firestore.FieldValue.serverTimestamp()
+                updatedAt: new Date()
             })
             .then(() => {
-                console.log("Synchronisé avec Firebase !");
+                console.log("Enregistré avec succès !");
             })
             .catch((error) => {
-                console.error("Erreur de synchronisation : ", error);
+                console.error("Erreur d'enregistrement : ", error);
             });
         }
 
-        // Chargement des données depuis Firebase Firestore
+        // CHARGEMENT DES DONNÉES
         function loadSavedData() {
             db.collection("appData").doc(docId).get().then((doc) => {
                 if (doc.exists) {
                     const data = doc.data();
-                    
                     if (data.protocols) {
                         document.querySelectorAll('.protocols-container').forEach((cont) => {
                             const id = cont.id;
@@ -1375,16 +1370,7 @@
                             }
                         });
                     }
-
-                    if (data.globals) {
-                        const editableGlobals = document.querySelectorAll('header [contenteditable="true"], #accueil [contenteditable="true"], footer [contenteditable="true"]');
-                        editableGlobals.forEach((el, index) => {
-                            if (data.globals[index] !== undefined) {
-                                el.innerHTML = data.globals[index];
-                            }
-                        });
-                    }
-                    console.log("Données chargées depuis Firebase !");
+                    console.log("Données chargées !");
                 }
             }).catch((error) => {
                 console.log("Erreur lors du chargement : ", error);
