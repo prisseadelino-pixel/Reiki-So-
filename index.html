@@ -391,8 +391,8 @@
 
     <header>
         <img src="https://i49.servimg.com/u/f49/11/31/89/70/picsar11.jpg" alt="Logo Harmonie Intérieure" class="app-logo">
-        <h1 contenteditable="true" oninput="saveData()">Harmonie Intérieure</h1>
-        <p contenteditable="true" oninput="saveData()">Reiki-So : l'alliance de la Sophrologie et du Reiki</p>
+        <h1 contenteditable="true" oninput="saveGlobal()">Harmonie Intérieure</h1>
+        <p contenteditable="true" oninput="saveGlobal()">Reiki-So : l'alliance de la Sophrologie et du Reiki</p>
     </header>
 
     <div class="container">
@@ -405,9 +405,9 @@
         <!-- Section Accueil -->
         <div id="accueil" class="section-content active">
             <div class="card">
-                <h3 contenteditable="true" oninput="saveData()">Bienvenue dans votre espace d'accompagnement</h3>
-                <p contenteditable="true" oninput="saveData()">Chaque thématique propose une séance complète et structurée de <strong>45 à 60 minutes</strong>, associant vos exercices de sophrologie officiels et des approches énergétiques Reiki adaptées.</p>
-                <p contenteditable="true" oninput="saveData()">Vous pouvez modifier tous les textes, ajouter/supprimer des exercices ou des photos : tout est enregistré automatiquement sur le cloud.</p>
+                <h3 contenteditable="true" oninput="saveGlobal()">Bienvenue dans votre espace d'accompagnement</h3>
+                <p contenteditable="true" oninput="saveGlobal()">Chaque thématique propose une séance complète et structurée de <strong>45 à 60 minutes</strong>, associant vos exercices de sophrologie officiels et des approches énergétiques Reiki adaptées.</p>
+                <p contenteditable="true" oninput="saveGlobal()">Vous pouvez modifier tous les textes, ajouter/supprimer des exercices ou des photos : tout est enregistré automatiquement sur le cloud.</p>
             </div>
         </div>
 
@@ -435,50 +435,50 @@
             </div>
 
             <!-- ================= THÉMATIQUE 1 ================= -->
-            <div id="t1" class="protocols-container">
+            <div id="t1" class="protocols-container" oninput="saveTheme(this)">
                 <button class="back-btn" onclick="backToThemes()">← Retour aux thématiques</button>
                 <div class="card">
                     <span class="badge protocole">Thématique 1 / 15</span>
-                    <h3 contenteditable="true" oninput="saveData()">Séance Lâcher-prise & Anti-Stress</h3>
-                    <p contenteditable="true" oninput="saveData()"><strong>Objectif :</strong> Évacuer les tensions physiques et mentales grâce à vos exercices spécifiques.</p>
+                    <h3 contenteditable="true">Séance Lâcher-prise & Anti-Stress</h3>
+                    <p contenteditable="true"><strong>Objectif :</strong> Évacuer les tensions physiques et mentales grâce à vos exercices spécifiques.</p>
                     <span class="duration-tag" style="margin-bottom: 1rem;">⏱️ Durée de la séance : 45 à 60 minutes</span>
-                    <div class="rule-box" contenteditable="true" oninput="saveData()">Règle d'or : Répétez chaque exercice de sophrologie 3 fois de suite, avec un temps de pause les yeux fermés entre chaque répétition pour accueillir les sensations.</div>
+                    <div class="rule-box" contenteditable="true">Règle d'or : Répétez chaque exercice de sophrologie 3 fois de suite, avec un temps de pause les yeux fermés entre chaque répétition pour accueillir les sensations.</div>
                     
                     <div class="exercises-list">
                         <div class="exercise-step">
                             <button class="delete-exercise-btn" onclick="removeExercise(this)" title="Supprimer cet exercice">🗑️</button>
-                            <h4 contenteditable="true" oninput="saveData()">1. Sophrologie - Le Prana (x3)</h4>
+                            <h4 contenteditable="true">1. Sophrologie - Le Prana (x3)</h4>
                             <div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer</button></div>
                             <div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div>
-                            <div class="exercise-text"><p contenteditable="true" oninput="saveData()">Inspirer en tendant les bras devant la poitrine. Bloquer la respiration et amener les mains ouvertes vers la poitrine en contractant les bras et les épaules. Terminer avec les poings fermés sur le thorax. Souffler par la bouche en relâchant les bras le long du corps (Répéter 3 fois).</p></div>
+                            <div class="exercise-text"><p contenteditable="true">Inspirer en tendant les bras devant la poitrine. Bloquer la respiration et amener les mains ouvertes vers la poitrine en contractant les bras et les épaules. Terminer avec les poings fermés sur le thorax. Souffler par la bouche en relâchant les bras le long du corps (Répéter 3 fois).</p></div>
                         </div>
                         <div class="exercise-step">
                             <button class="delete-exercise-btn" onclick="removeExercise(this)" title="Supprimer cet exercice">🗑️</button>
-                            <h4 contenteditable="true" oninput="saveData()">2. Sophrologie - Le Nauli (x3)</h4>
+                            <h4 contenteditable="true">2. Sophrologie - Le Nauli (x3)</h4>
                             <div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer</button></div>
                             <div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div>
-                            <div class="exercise-text"><p contenteditable="true" oninput="saveData()">Souffler par la bouche en posant les mains sur les genoux. Retenir sa respiration, poumons vides. Rentrer et sortir son nombril plusieurs fois. Se redresser en reprenant une respiration naturelle et en ramenant les bras le long du corps (Répéter 3 fois).</p></div>
+                            <div class="exercise-text"><p contenteditable="true">Souffler par la bouche en posant les mains sur les genoux. Retenir sa respiration, poumons vides. Rentrer et sortir son nombril plusieurs fois. Se redresser en reprenant une respiration naturelle et en ramenant les bras le long du corps (Répéter 3 fois).</p></div>
                         </div>
                         <div class="exercise-step">
                             <button class="delete-exercise-btn" onclick="removeExercise(this)" title="Supprimer cet exercice">🗑️</button>
-                            <h4 contenteditable="true" oninput="saveData()">3. Sophrologie - Crève-Cœur (Foetal) (x3)</h4>
+                            <h4 contenteditable="true">3. Sophrologie - Crève-Cœur (Foetal) (x3)</h4>
                             <div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer</button></div>
                             <div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div>
-                            <div class="exercise-text"><p contenteditable="true" oninput="saveData()">Inspirer par le nez en penchant le buste légèrement vers l'avant. Bloquer la respiration en vous enveloppant de vos bras. Se câliner. Revenir en position initiale en soufflant par la bouche (Répéter 3 fois).</p></div>
+                            <div class="exercise-text"><p contenteditable="true">Inspirer par le nez en penchant le buste légèrement vers l'avant. Bloquer la respiration en vous enveloppant de vos bras. Se câliner. Revenir en position initiale en soufflant par la bouche (Répéter 3 fois).</p></div>
                         </div>
                         <div class="exercise-step">
                             <button class="delete-exercise-btn" onclick="removeExercise(this)" title="Supprimer cet exercice">🗑️</button>
-                            <h4 contenteditable="true" oninput="saveData()">4. Reiki - Auto-traitement du Cœur (4 min)</h4>
+                            <h4 contenteditable="true">4. Reiki - Auto-traitement du Cœur (4 min)</h4>
                             <div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer</button></div>
                             <div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div>
-                            <div class="exercise-text"><p contenteditable="true" oninput="saveData()">Une main sur le centre de la poitrine et l'autre sur le plexus pour envelopper l'espace émotionnel avec l'énergie Reiki.</p></div>
+                            <div class="exercise-text"><p contenteditable="true">Une main sur le centre de la poitrine et l'autre sur le plexus pour envelopper l'espace émotionnel avec l'énergie Reiki.</p></div>
                         </div>
                         <div class="exercise-step">
                             <button class="delete-exercise-btn" onclick="removeExercise(this)" title="Supprimer cet exercice">🗑️</button>
-                            <h4 contenteditable="true" oninput="saveData()">5. Reiki - Apaisement des Surrénales (3 min)</h4>
+                            <h4 contenteditable="true">5. Reiki - Apaisement des Surrénales (3 min)</h4>
                             <div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer</button></div>
                             <div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div>
-                            <div class="exercise-text"><p contenteditable="true" oninput="saveData()">Mains posées dans le bas du dos pour calmer l'anxiété profonde et revitaliser le corps.</p></div>
+                            <div class="exercise-text"><p contenteditable="true">Mains posées dans le bas du dos pour calmer l'anxiété profonde et revitaliser le corps.</p></div>
                         </div>
                     </div>
 
@@ -487,50 +487,50 @@
             </div>
 
             <!-- ================= THÉMATIQUE 2 ================= -->
-            <div id="t2" class="protocols-container">
+            <div id="t2" class="protocols-container" oninput="saveTheme(this)">
                 <button class="back-btn" onclick="backToThemes()">← Retour aux thématiques</button>
                 <div class="card">
                     <span class="badge protocole">Thématique 2 / 15</span>
-                    <h3 contenteditable="true" oninput="saveData()">Protocole Sommeil & Sérénité</h3>
-                    <p contenteditable="true" oninput="saveData()"><strong>Objectif :</strong> Relâcher les tensions pour une nuit profonde.</p>
+                    <h3 contenteditable="true">Protocole Sommeil & Sérénité</h3>
+                    <p contenteditable="true"><strong>Objectif :</strong> Relâcher les tensions pour une nuit profonde.</p>
                     <span class="duration-tag" style="margin-bottom: 1rem;">⏱️ Durée de la séance : 45 à 60 minutes</span>
-                    <div class="rule-box" contenteditable="true" oninput="saveData()">Règle d'or : Répétition par 3 avec temps d'accueil.</div>
+                    <div class="rule-box" contenteditable="true">Règle d'or : Répétition par 3 avec temps d'accueil.</div>
                     
                     <div class="exercises-list">
                         <div class="exercise-step">
                             <button class="delete-exercise-btn" onclick="removeExercise(this)" title="Supprimer cet exercice">🗑️</button>
-                            <h4 contenteditable="true" oninput="saveData()">1. Sophrologie - Perception des Bras (x3)</h4>
+                            <h4 contenteditable="true">1. Sophrologie - Perception des Bras (x3)</h4>
                             <div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer</button></div>
                             <div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div>
-                            <div class="exercise-text"><p contenteditable="true" oninput="saveData()">Inspirer par le nez en levant le bras devant la poitrine. Bloquer la respiration et maintenir la position ou faire des petits cercles. Baisser le bras doucement en soufflant par la bouche (3 fois bras droit, 1 fois bras gauche, 1 fois les 2 bras).</p></div>
+                            <div class="exercise-text"><p contenteditable="true">Inspirer par le nez en levant le bras devant la poitrine. Bloquer la respiration et maintenir la position ou faire des petits cercles. Baisser le bras doucement en soufflant par la bouche (3 fois bras droit, 1 fois bras gauche, 1 fois les 2 bras).</p></div>
                         </div>
                         <div class="exercise-step">
                             <button class="delete-exercise-btn" onclick="removeExercise(this)" title="Supprimer cet exercice">🗑️</button>
-                            <h4 contenteditable="true" oninput="saveData()">2. Sophrologie - Crève-Cœur (Chameau) (x3)</h4>
+                            <h4 contenteditable="true">2. Sophrologie - Crève-Cœur (Chameau) (x3)</h4>
                             <div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer</button></div>
                             <div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div>
-                            <div class="exercise-text"><p contenteditable="true" oninput="saveData()">Poser les mains ou les poings sur les reins. Inspirer par le nez et bloquer la respiration en étirant le buste vers l'arrière. Se redresser en soufflant par la bouche (Répéter 3 fois).</p></div>
+                            <div class="exercise-text"><p contenteditable="true">Poser les mains ou les poings sur les reins. Inspirer par le nez et bloquer la respiration en étirant le buste vers l'arrière. Se redresser en soufflant par la bouche (Répéter 3 fois).</p></div>
                         </div>
                         <div class="exercise-step">
                             <button class="delete-exercise-btn" onclick="removeExercise(this)" title="Supprimer cet exercice">🗑️</button>
-                            <h4 contenteditable="true" oninput="saveData()">3. Sophrologie - Le Prana (x3)</h4>
+                            <h4 contenteditable="true">3. Sophrologie - Le Prana (x3)</h4>
                             <div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer</button></div>
                             <div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div>
-                            <div class="exercise-text"><p contenteditable="true" oninput="saveData()">Inspirer en tendant les bras devant la poitrine, bloquer et ramener vers le thorax, puis relâcher en soufflant (Répéter 3 fois).</p></div>
+                            <div class="exercise-text"><p contenteditable="true">Inspirer en tendant les bras devant la poitrine, bloquer et ramener vers le thorax, puis relâcher en soufflant (Répéter 3 fois).</p></div>
                         </div>
                         <div class="exercise-step">
                             <button class="delete-exercise-btn" onclick="removeExercise(this)" title="Supprimer cet exercice">🗑️</button>
-                            <h4 contenteditable="true" oninput="saveData()">4. Reiki - Harmonisation du Troisième Œil (3 min)</h4>
+                            <h4 contenteditable="true">4. Reiki - Harmonisation du Troisième Œil (3 min)</h4>
                             <div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer</button></div>
                             <div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div>
-                            <div class="exercise-text"><p contenteditable="true" oninput="saveData()">Doigts sur le front et l'occiput pour dissiper les ruminations mentales avant le coucher.</p></div>
+                            <div class="exercise-text"><p contenteditable="true">Doigts sur le front et l'occiput pour dissiper les ruminations mentales avant le coucher.</p></div>
                         </div>
                         <div class="exercise-step">
                             <button class="delete-exercise-btn" onclick="removeExercise(this)" title="Supprimer cet exercice">🗑️</button>
-                            <h4 contenteditable="true" oninput="saveData()">5. Reiki - Ancrage et Sécurité (3 min)</h4>
+                            <h4 contenteditable="true">5. Reiki - Ancrage et Sécurité (3 min)</h4>
                             <div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer</button></div>
                             <div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div>
-                            <div class="exercise-text"><p contenteditable="true" oninput="saveData()">Imposition sur les pieds pour induire le lâcher-prise total et l'endormissement.</p></div>
+                            <div class="exercise-text"><p contenteditable="true">Imposition sur les pieds pour induire le lâcher-prise total et l'endormissement.</p></div>
                         </div>
                     </div>
 
@@ -539,50 +539,50 @@
             </div>
 
             <!-- ================= THÉMATIQUE 3 ================= -->
-            <div id="t3" class="protocols-container">
+            <div id="t3" class="protocols-container" oninput="saveTheme(this)">
                 <button class="back-btn" onclick="backToThemes()">← Retour aux thématiques</button>
                 <div class="card">
                     <span class="badge protocole">Thématique 3 / 15</span>
-                    <h3 contenteditable="true" oninput="saveData()">Énergie & Vitalité</h3>
-                    <p contenteditable="true" oninput="saveData()"><strong>Objectif :</strong> Stimuler l'élan vital et la tonicité.</p>
+                    <h3 contenteditable="true">Énergie & Vitalité</h3>
+                    <p contenteditable="true"><strong>Objectif :</strong> Stimuler l'élan vital et la tonicité.</p>
                     <span class="duration-tag" style="margin-bottom: 1rem;">⏱️ Durée de la séance : 45 à 60 minutes</span>
-                    <div class="rule-box" contenteditable="true" oninput="saveData()">Règle d'or : Répétition par 3 avec temps d'accueil.</div>
+                    <div class="rule-box" contenteditable="true">Règle d'or : Répétition par 3 avec temps d'accueil.</div>
                     
                     <div class="exercises-list">
                         <div class="exercise-step">
                             <button class="delete-exercise-btn" onclick="removeExercise(this)" title="Supprimer cet exercice">🗑️</button>
-                            <h4 contenteditable="true" oninput="saveData()">1. Sophrologie - Perception des Jambes (x3)</h4>
+                            <h4 contenteditable="true">1. Sophrologie - Perception des Jambes (x3)</h4>
                             <div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer</button></div>
                             <div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div>
-                            <div class="exercise-text"><p contenteditable="true" oninput="saveData()">Inspirer par le nez en levant la jambe. Bloquer la respiration et maintenir la position ou faire des petits cercles. Baisser la jambe doucement en soufflant par la bouche (3 fois jambe droite, 3 fois jambe gauche, 1 fois les 2 jambes).</p></div>
+                            <div class="exercise-text"><p contenteditable="true">Inspirer par le nez en levant la jambe. Bloquer la respiration et maintenir la position ou faire des petits cercles. Baisser la jambe doucement en soufflant par la bouche (3 fois jambe droite, 3 fois jambe gauche, 1 fois les 2 jambes).</p></div>
                         </div>
                         <div class="exercise-step">
                             <button class="delete-exercise-btn" onclick="removeExercise(this)" title="Supprimer cet exercice">🗑️</button>
-                            <h4 contenteditable="true" oninput="saveData()">2. Sophrologie - Perception Verticale (x3)</h4>
+                            <h4 contenteditable="true">2. Sophrologie - Perception Verticale (x3)</h4>
                             <div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer</button></div>
                             <div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div>
-                            <div class="exercise-text"><p contenteditable="true" oninput="saveData()">Inspirer par le nez, mains croisées au dessus de la tête. Bloquer la respiration et tenir la position en étirant les bras. Descendre les mains devant soi en soufflant par la bouche et tenir la position. Reprendre une respiration naturelle (Répéter 3 fois).</p></div>
+                            <div class="exercise-text"><p contenteditable="true">Inspirer par le nez, mains croisées au dessus de la tête. Bloquer la respiration et tenir la position en étirant les bras. Descendre les mains devant soi en soufflant par la bouche et tenir la position. Reprendre une respiration naturelle (Répéter 3 fois).</p></div>
                         </div>
                         <div class="exercise-step">
                             <button class="delete-exercise-btn" onclick="removeExercise(this)" title="Supprimer cet exercice">🗑️</button>
-                            <h4 contenteditable="true" oninput="saveData()">3. Sophrologie - Le Nauli (x3)</h4>
+                            <h4 contenteditable="true">3. Sophrologie - Le Nauli (x3)</h4>
                             <div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer</button></div>
                             <div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div>
-                            <div class="exercise-text"><p contenteditable="true" oninput="saveData()">Souffler, retenir poumons vides, faire le pompage du nombril puis se redresser (Répéter 3 fois).</p></div>
+                            <div class="exercise-text"><p contenteditable="true">Souffler, retenir poumons vides, faire le pompage du nombril puis se redresser (Répéter 3 fois).</p></div>
                         </div>
                         <div class="exercise-step">
                             <button class="delete-exercise-btn" onclick="removeExercise(this)" title="Supprimer cet exercice">🗑️</button>
-                            <h4 contenteditable="true" oninput="saveData()">4. Reiki - Stimulation du Plexus Solaire (3 min)</h4>
+                            <h4 contenteditable="true">4. Reiki - Stimulation du Plexus Solaire (3 min)</h4>
                             <div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer</button></div>
                             <div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div>
-                            <div class="exercise-text"><p contenteditable="true" oninput="saveData()">Imposition sur le plexus pour relancer l'énergie d'action et la motivation.</p></div>
+                            <div class="exercise-text"><p contenteditable="true">Imposition sur le plexus pour relancer l'énergie d'action et la motivation.</p></div>
                         </div>
                         <div class="exercise-step">
                             <button class="delete-exercise-btn" onclick="removeExercise(this)" title="Supprimer cet exercice">🗑️</button>
-                            <h4 contenteditable="true" oninput="saveData()">5. Reiki - Circuit des Chakras des Mains (3 min)</h4>
+                            <h4 contenteditable="true">5. Reiki - Circuit des Chakras des Mains (3 min)</h4>
                             <div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer</button></div>
                             <div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div>
-                            <div class="exercise-text"><p contenteditable="true" oninput="saveData()">Friction et activation de l'énergie au creux des paumes pour diffuser la vitalité.</p></div>
+                            <div class="exercise-text"><p contenteditable="true">Friction et activation de l'énergie au creux des paumes pour diffuser la vitalité.</p></div>
                         </div>
                     </div>
 
@@ -591,50 +591,50 @@
             </div>
 
             <!-- ================= THÉMATIQUE 4 ================= -->
-            <div id="t4" class="protocols-container">
+            <div id="t4" class="protocols-container" oninput="saveTheme(this)">
                 <button class="back-btn" onclick="backToThemes()">← Retour aux thématiques</button>
                 <div class="card">
                     <span class="badge protocole">Thématique 4 / 15</span>
-                    <h3 contenteditable="true" oninput="saveData()">Anti-Burnout & Surmenage</h3>
-                    <p contenteditable="true" oninput="saveData()"><strong>Objectif :</strong> Déconnecter d'une charge intense et récupérer.</p>
+                    <h3 contenteditable="true">Anti-Burnout & Surmenage</h3>
+                    <p contenteditable="true"><strong>Objectif :</strong> Déconnecter d'une charge intense et récupérer.</p>
                     <span class="duration-tag" style="margin-bottom: 1rem;">⏱️ Durée de la séance : 45 à 60 minutes</span>
-                    <div class="rule-box" contenteditable="true" oninput="saveData()">Règle d'or : Répétition par 3 avec temps d'accueil.</div>
+                    <div class="rule-box" contenteditable="true">Règle d'or : Répétition par 3 avec temps d'accueil.</div>
                     
                     <div class="exercises-list">
                         <div class="exercise-step">
                             <button class="delete-exercise-btn" onclick="removeExercise(this)" title="Supprimer cet exercice">🗑️</button>
-                            <h4 contenteditable="true" oninput="saveData()">1. Sophrologie - Le Prana (x3)</h4>
+                            <h4 contenteditable="true">1. Sophrologie - Le Prana (x3)</h4>
                             <div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer</button></div>
                             <div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div>
-                            <div class="exercise-text"><p contenteditable="true" oninput="saveData()">Inspirer en tendant les bras, contraction des bras et poings sur le thorax, puis relâcher (x3).</p></div>
+                            <div class="exercise-text"><p contenteditable="true">Inspirer en tendant les bras, contraction des bras et poings sur le thorax, puis relâcher (x3).</p></div>
                         </div>
                         <div class="exercise-step">
                             <button class="delete-exercise-btn" onclick="removeExercise(this)" title="Supprimer cet exercice">🗑️</button>
-                            <h4 contenteditable="true" oninput="saveData()">2. Sophrologie - Crève-Cœur (Foetal) (x3)</h4>
+                            <h4 contenteditable="true">2. Sophrologie - Crève-Cœur (Foetal) (x3)</h4>
                             <div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer</button></div>
                             <div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div>
-                            <div class="exercise-text"><p contenteditable="true" oninput="saveData()">Pencher le buste, s'envelopper de ses bras, se câliner et relâcher (x3).</p></div>
+                            <div class="exercise-text"><p contenteditable="true">Pencher le buste, s'envelopper de ses bras, se câliner et relâcher (x3).</p></div>
                         </div>
                         <div class="exercise-step">
                             <button class="delete-exercise-btn" onclick="removeExercise(this)" title="Supprimer cet exercice">🗑️</button>
-                            <h4 contenteditable="true" oninput="saveData()">3. Sophrologie - Le Nauli (x3)</h4>
+                            <h4 contenteditable="true">3. Sophrologie - Le Nauli (x3)</h4>
                             <div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer</button></div>
                             <div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div>
-                            <div class="exercise-text"><p contenteditable="true" oninput="saveData()">Souffler, retenir poumons vides et mouvements du nombril pour évacuer le stress (x3).</p></div>
+                            <div class="exercise-text"><p contenteditable="true">Souffler, retenir poumons vides et mouvements du nombril pour évacuer le stress (x3).</p></div>
                         </div>
                         <div class="exercise-step">
                             <button class="delete-exercise-btn" onclick="removeExercise(this)" title="Supprimer cet exercice">🗑️</button>
-                            <h4 contenteditable="true" oninput="saveData()">4. Reiki - Imposition sur le Cœur (4 min)</h4>
+                            <h4 contenteditable="true">4. Reiki - Imposition sur le Cœur (4 min)</h4>
                             <div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer</button></div>
                             <div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div>
-                            <div class="exercise-text"><p contenteditable="true" oninput="saveData()">Soutenir la bienveillance envers soi-même et couper avec le mental.</p></div>
+                            <div class="exercise-text"><p contenteditable="true">Soutenir la bienveillance envers soi-même et couper avec le mental.</p></div>
                         </div>
                         <div class="exercise-step">
                             <button class="delete-exercise-btn" onclick="removeExercise(this)" title="Supprimer cet exercice">🗑️</button>
-                            <h4 contenteditable="true" oninput="saveData()">5. Reiki - Traitement de la Tête / Occiput (3 min)</h4>
+                            <h4 contenteditable="true">5. Reiki - Traitement de la Tête / Occiput (3 min)</h4>
                             <div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer</button></div>
                             <div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div>
-                            <div class="exercise-text"><p contenteditable="true" oninput="saveData()">Apaiser la surchauffe cognitive et détendre le système nerveux.</p></div>
+                            <div class="exercise-text"><p contenteditable="true">Apaiser la surchauffe cognitive et détendre le système nerveux.</p></div>
                         </div>
                     </div>
 
@@ -643,50 +643,50 @@
             </div>
 
             <!-- ================= THÉMATIQUE 5 ================= -->
-            <div id="t5" class="protocols-container">
+            <div id="t5" class="protocols-container" oninput="saveTheme(this)">
                 <button class="back-btn" onclick="backToThemes()">← Retour aux thématiques</button>
                 <div class="card">
                     <span class="badge protocole">Thématique 5 / 15</span>
-                    <h3 contenteditable="true" oninput="saveData()">Libération Charge Mentale</h3>
-                    <p contenteditable="true" oninput="saveData()"><strong>Objectif :</strong> Stopper le flot des pensées parasites.</p>
+                    <h3 contenteditable="true">Libération Charge Mentale</h3>
+                    <p contenteditable="true"><strong>Objectif :</strong> Stopper le flot des pensées parasites.</p>
                     <span class="duration-tag" style="margin-bottom: 1rem;">⏱️ Durée de la séance : 45 à 60 minutes</span>
-                    <div class="rule-box" contenteditable="true" oninput="saveData()">Règle d'or : Répétition par 3 avec temps d'accueil.</div>
+                    <div class="rule-box" contenteditable="true">Règle d'or : Répétition par 3 avec temps d'accueil.</div>
                     
                     <div class="exercises-list">
                         <div class="exercise-step">
                             <button class="delete-exercise-btn" onclick="removeExercise(this)" title="Supprimer cet exercice">🗑️</button>
-                            <h4 contenteditable="true" oninput="saveData()">1. Sophrologie - Le Tra Tac (x3)</h4>
+                            <h4 contenteditable="true">1. Sophrologie - Le Tra Tac (x3)</h4>
                             <div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer</button></div>
                             <div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div>
-                            <div class="exercise-text"><p contenteditable="true" oninput="saveData()">Yeux ouverts, tendre le bras devant soi, poing fermé pouce levé. Inspirer et bloquer en fixant et approchant le pouce des yeux. Quand la vue se trouble, fermer les yeux et placer le pouce entre les sourcils. Relâcher en soufflant (Répéter 3 fois).</p></div>
+                            <div class="exercise-text"><p contenteditable="true">Yeux ouverts, tendre le bras devant soi, poing fermé pouce levé. Inspirer et bloquer en fixant et approchant le pouce des yeux. Quand la vue se trouble, fermer les yeux et placer le pouce entre les sourcils. Relâcher en soufflant (Répéter 3 fois).</p></div>
                         </div>
                         <div class="exercise-step">
                             <button class="delete-exercise-btn" onclick="removeExercise(this)" title="Supprimer cet exercice">🗑️</button>
-                            <h4 contenteditable="true" oninput="saveData()">2. Sophrologie - Le Prana (x3)</h4>
+                            <h4 contenteditable="true">2. Sophrologie - Le Prana (x3)</h4>
                             <div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer</button></div>
                             <div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div>
-                            <div class="exercise-text"><p contenteditable="true" oninput="saveData()">Inspirer en tendant les bras, contraction et poings sur le thorax, puis relâcher (x3).</p></div>
+                            <div class="exercise-text"><p contenteditable="true">Inspirer en tendant les bras, contraction et poings sur le thorax, puis relâcher (x3).</p></div>
                         </div>
                         <div class="exercise-step">
                             <button class="delete-exercise-btn" onclick="removeExercise(this)" title="Supprimer cet exercice">🗑️</button>
-                            <h4 contenteditable="true" oninput="saveData()">3. Sophrologie - Perception Verticale (x3)</h4>
+                            <h4 contenteditable="true">3. Sophrologie - Perception Verticale (x3)</h4>
                             <div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer</button></div>
                             <div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div>
-                            <div class="exercise-text"><p contenteditable="true" oninput="saveData()">Mains croisées au-dessus de la tête, étirement, puis descente en soufflant (x3).</p></div>
+                            <div class="exercise-text"><p contenteditable="true">Mains croisées au-dessus de la tête, étirement, puis descente en soufflant (x3).</p></div>
                         </div>
                         <div class="exercise-step">
                             <button class="delete-exercise-btn" onclick="removeExercise(this)" title="Supprimer cet exercice">🗑️</button>
-                            <h4 contenteditable="true" oninput="saveData()">4. Reiki - Équilibrage des Hémisphères (3 min)</h4>
+                            <h4 contenteditable="true">4. Reiki - Équilibrage des Hémisphères (3 min)</h4>
                             <div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer</button></div>
                             <div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div>
-                            <div class="exercise-text"><p contenteditable="true" oninput="saveData()">Une main sur le front et l'autre à l'arrière (occiput) pour unifier le mental.</p></div>
+                            <div class="exercise-text"><p contenteditable="true">Une main sur le front et l'autre à l'arrière (occiput) pour unifier le mental.</p></div>
                         </div>
                         <div class="exercise-step">
                             <button class="delete-exercise-btn" onclick="removeExercise(this)" title="Supprimer cet exercice">🗑️</button>
-                            <h4 contenteditable="true" oninput="saveData()">5. Reiki - Imposition sur les Tempes (3 min)</h4>
+                            <h4 contenteditable="true">5. Reiki - Imposition sur les Tempes (3 min)</h4>
                             <div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer</button></div>
                             <div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div>
-                            <div class="exercise-text"><p contenteditable="true" oninput="saveData()">Apaisement direct de la zone cognitive pour vider les pensées.</p></div>
+                            <div class="exercise-text"><p contenteditable="true">Apaisement direct de la zone cognitive pour vider les pensées.</p></div>
                         </div>
                     </div>
 
@@ -695,50 +695,50 @@
             </div>
 
             <!-- ================= THÉMATIQUE 6 ================= -->
-            <div id="theme-6" class="protocols-container">
+            <div id="theme-6" class="protocols-container" oninput="saveTheme(this)">
                 <button class="back-btn" onclick="backToThemes()">← Retour aux thématiques</button>
                 <div class="card">
                     <span class="badge protocole">Thématique 6 / 15</span>
-                    <h3 contenteditable="true" oninput="saveData()">Cœur & Émotions Apaisées</h3>
-                    <p contenteditable="true" oninput="saveData()"><strong>Objectif :</strong> Traverser et adoucir les turbulences émotionnelles.</p>
+                    <h3 contenteditable="true">Cœur & Émotions Apaisées</h3>
+                    <p contenteditable="true"><strong>Objectif :</strong> Traverser et adoucir les turbulences émotionnelles.</p>
                     <span class="duration-tag" style="margin-bottom: 1rem;">⏱️ Durée de la séance : 45 à 60 minutes</span>
-                    <div class="rule-box" contenteditable="true" oninput="saveData()">Règle d'or : Répétition par 3 avec temps d'accueil.</div>
+                    <div class="rule-box" contenteditable="true">Règle d'or : Répétition par 3 avec temps d'accueil.</div>
                     
                     <div class="exercises-list">
                         <div class="exercise-step">
                             <button class="delete-exercise-btn" onclick="removeExercise(this)" title="Supprimer cet exercice">🗑️</button>
-                            <h4 contenteditable="true" oninput="saveData()">1. Sophrologie - Crève-Cœur (Foetal) (x3)</h4>
+                            <h4 contenteditable="true">1. Sophrologie - Crève-Cœur (Foetal) (x3)</h4>
                             <div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer</button></div>
                             <div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div>
-                            <div class="exercise-text"><p contenteditable="true" oninput="saveData()">Pencher le buste, s'envelopper de ses bras, se câliner (Répéter 3 fois).</p></div>
+                            <div class="exercise-text"><p contenteditable="true">Pencher le buste, s'envelopper de ses bras, se câliner (Répéter 3 fois).</p></div>
                         </div>
                         <div class="exercise-step">
                             <button class="delete-exercise-btn" onclick="removeExercise(this)" title="Supprimer cet exercice">🗑️</button>
-                            <h4 contenteditable="true" oninput="saveData()">2. Sophrologie - Crève-Cœur (Chameau) (x3)</h4>
+                            <h4 contenteditable="true">2. Sophrologie - Crève-Cœur (Chameau) (x3)</h4>
                             <div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer</button></div>
                             <div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div>
-                            <div class="exercise-text"><p contenteditable="true" oninput="saveData()">Mains sur les reins, inspirer et étirer le buste vers l'arrière, puis souffler (Répéter 3 fois).</p></div>
+                            <div class="exercise-text"><p contenteditable="true">Mains sur les reins, inspirer et étirer le buste vers l'arrière, puis souffler (Répéter 3 fois).</p></div>
                         </div>
                         <div class="exercise-step">
                             <button class="delete-exercise-btn" onclick="removeExercise(this)" title="Supprimer cet exercice">🗑️</button>
-                            <h4 contenteditable="true" oninput="saveData()">3. Sophrologie - Le Prana (x3)</h4>
+                            <h4 contenteditable="true">3. Sophrologie - Le Prana (x3)</h4>
                             <div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer</button></div>
                             <div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div>
-                            <div class="exercise-text"><p contenteditable="true" oninput="saveData()">Inspirer en tendant les bras, ramener sur le thorax et relâcher (Répéter 3 fois).</p></div>
+                            <div class="exercise-text"><p contenteditable="true">Inspirer en tendant les bras, ramener sur le thorax et relâcher (Répéter 3 fois).</p></div>
                         </div>
                         <div class="exercise-step">
                             <button class="delete-exercise-btn" onclick="removeExercise(this)" title="Supprimer cet exercice">🗑️</button>
-                            <h4 contenteditable="true" oninput="saveData()">4. Reiki - Grand Auto-Traitement Cœur (4 min)</h4>
+                            <h4 contenteditable="true">4. Reiki - Grand Auto-Traitement Cœur (4 min)</h4>
                             <div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer</button></div>
                             <div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div>
-                            <div class="exercise-text"><p contenteditable="true" oninput="saveData()">Mains sur le chakra du cœur pour diffuser une chaleur réparatrice.</p></div>
+                            <div class="exercise-text"><p contenteditable="true">Mains sur le chakra du cœur pour diffuser une chaleur réparatrice.</p></div>
                         </div>
                         <div class="exercise-step">
                             <button class="delete-exercise-btn" onclick="removeExercise(this)" title="Supprimer cet exercice">🗑️</button>
-                            <h4 contenteditable="true" oninput="saveData()">5. Reiki - Harmonie Cœur et Plexus (3 min)</h4>
+                            <h4 contenteditable="true">5. Reiki - Harmonie Cœur et Plexus (3 min)</h4>
                             <div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer</button></div>
                             <div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div>
-                            <div class="exercise-text"><p contenteditable="true" oninput="saveData()">Relier l'espace affectif et la volonté pour retrouver la paix.</p></div>
+                            <div class="exercise-text"><p contenteditable="true">Relier l'espace affectif et la volonté pour retrouver la paix.</p></div>
                         </div>
                     </div>
 
@@ -747,50 +747,50 @@
             </div>
 
             <!-- ================= THÉMATIQUE 7 ================= -->
-            <div id="theme-7" class="protocols-container">
+            <div id="theme-7" class="protocols-container" oninput="saveTheme(this)">
                 <button class="back-btn" onclick="backToThemes()">← Retour aux thématiques</button>
                 <div class="card">
                     <span class="badge protocole">Thématique 7 / 15</span>
-                    <h3 contenteditable="true" oninput="saveData()">Ancrage & Stabilité</h3>
-                    <p contenteditable="true" oninput="saveData()"><strong>Objectif :</strong> Se sentir enraciné, solide et stable.</p>
+                    <h3 contenteditable="true">Ancrage & Stabilité</h3>
+                    <p contenteditable="true"><strong>Objectif :</strong> Se sentir enraciné, solide et stable.</p>
                     <span class="duration-tag" style="margin-bottom: 1rem;">⏱️ Durée de la séance : 45 à 60 minutes</span>
-                    <div class="rule-box" contenteditable="true" oninput="saveData()">Règle d'or : Répétition par 3 avec temps d'accueil.</div>
+                    <div class="rule-box" contenteditable="true">Règle d'or : Répétition par 3 avec temps d'accueil.</div>
                     
                     <div class="exercises-list">
                         <div class="exercise-step">
                             <button class="delete-exercise-btn" onclick="removeExercise(this)" title="Supprimer cet exercice">🗑️</button>
-                            <h4 contenteditable="true" oninput="saveData()">1. Sophrologie - Vivance de la Liberté</h4>
+                            <h4 contenteditable="true">1. Sophrologie - Vivance de la Liberté</h4>
                             <div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer</button></div>
                             <div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div>
-                            <div class="exercise-text"><p contenteditable="true" oninput="saveData()">Debout, poing sur le ventre recouvert par l'autre main, contracter le corps et relâcher. S'asseoir, contracter et relâcher. Se mettre debout, poing sur le ventre et marcher doucement en observant sa marche (Méditer entre chaque).</p></div>
+                            <div class="exercise-text"><p contenteditable="true">Debout, poing sur le ventre recouvert par l'autre main, contracter le corps et relâcher. S'asseoir, contracter et relâcher. Se mettre debout, poing sur le ventre et marcher doucement en observant sa marche (Méditer entre chaque).</p></div>
                         </div>
                         <div class="exercise-step">
                             <button class="delete-exercise-btn" onclick="removeExercise(this)" title="Supprimer cet exercice">🗑️</button>
-                            <h4 contenteditable="true" oninput="saveData()">2. Sophrologie - Perception des Jambes (x3)</h4>
+                            <h4 contenteditable="true">2. Sophrologie - Perception des Jambes (x3)</h4>
                             <div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer</button></div>
                             <div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div>
-                            <div class="exercise-text"><p contenteditable="true" oninput="saveData()">Inspirer en levant la jambe, maintenir ou faire des cercles, souffler en baissant (3 fois chaque jambe, 1 fois les deux).</p></div>
+                            <div class="exercise-text"><p contenteditable="true">Inspirer en levant la jambe, maintenir ou faire des cercles, souffler en baissant (3 fois chaque jambe, 1 fois les deux).</p></div>
                         </div>
                         <div class="exercise-step">
                             <button class="delete-exercise-btn" onclick="removeExercise(this)" title="Supprimer cet exercice">🗑️</button>
-                            <h4 contenteditable="true" oninput="saveData()">3. Sophrologie - Perception Verticale (x3)</h4>
+                            <h4 contenteditable="true">3. Sophrologie - Perception Verticale (x3)</h4>
                             <div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer</button></div>
                             <div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div>
-                            <div class="exercise-text"><p contenteditable="true" oninput="saveData()">Mains croisées au-dessus de la tête, étirement, puis descente en soufflant (Répéter 3 fois).</p></div>
+                            <div class="exercise-text"><p contenteditable="true">Mains croisées au-dessus de la tête, étirement, puis descente en soufflant (Répéter 3 fois).</p></div>
                         </div>
                         <div class="exercise-step">
                             <button class="delete-exercise-btn" onclick="removeExercise(this)" title="Supprimer cet exercice">🗑️</button>
-                            <h4 contenteditable="true" oninput="saveData()">4. Reiki - Ancrage Racine sur les Pieds (4 min)</h4>
+                            <h4 contenteditable="true">4. Reiki - Ancrage Racine sur les Pieds (4 min)</h4>
                             <div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer</button></div>
                             <div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div>
-                            <div class="exercise-text"><p contenteditable="true" oninput="saveData()">Imposition sur les pieds pour fixer l'énergie dans le sol.</p></div>
+                            <div class="exercise-text"><p contenteditable="true">Imposition sur les pieds pour fixer l'énergie dans le sol.</p></div>
                         </div>
                         <div class="exercise-step">
                             <button class="delete-exercise-btn" onclick="removeExercise(this)" title="Supprimer cet exercice">🗑️</button>
-                            <h4 contenteditable="true" oninput="saveData()">5. Reiki - Soutien des Genoux et Hanches (3 min)</h4>
+                            <h4 contenteditable="true">5. Reiki - Soutien des Genoux et Hanches (3 min)</h4>
                             <div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer</button></div>
                             <div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div>
-                            <div class="exercise-text"><p contenteditable="true" oninput="saveData()">Mains sur les articulations pour relâcher la rigidité et favoriser la souplesse stable.</p></div>
+                            <div class="exercise-text"><p contenteditable="true">Mains sur les articulations pour relâcher la rigidité et favoriser la souplesse stable.</p></div>
                         </div>
                     </div>
 
@@ -799,50 +799,50 @@
             </div>
 
             <!-- ================= THÉMATIQUE 8 ================= -->
-            <div id="theme-8" class="protocols-container">
+            <div id="theme-8" class="protocols-container" oninput="saveTheme(this)">
                 <button class="back-btn" onclick="backToThemes()">← Retour aux thématiques</button>
                 <div class="card">
                     <span class="badge protocole">Thématique 8 / 15</span>
-                    <h3 contenteditable="true" oninput="saveData()">Coup de Boost Énergétique</h3>
-                    <p contenteditable="true" oninput="saveData()"><strong>Objectif :</strong> Vaincre la torpeur de milieu de journée.</p>
+                    <h3 contenteditable="true">Coup de Boost Énergétique</h3>
+                    <p contenteditable="true"><strong>Objectif :</strong> Vaincre la torpeur de milieu de journée.</p>
                     <span class="duration-tag" style="margin-bottom: 1rem;">⏱️ Durée de la séance : 45 à 60 minutes</span>
-                    <div class="rule-box" contenteditable="true" oninput="saveData()">Règle d'or : Répétition par 3 avec temps d'accueil.</div>
+                    <div class="rule-box" contenteditable="true">Règle d'or : Répétition par 3 avec temps d'accueil.</div>
                     
                     <div class="exercises-list">
                         <div class="exercise-step">
                             <button class="delete-exercise-btn" onclick="removeExercise(this)" title="Supprimer cet exercice">🗑️</button>
-                            <h4 contenteditable="true" oninput="saveData()">1. Sophrologie - Le Prana (x3)</h4>
+                            <h4 contenteditable="true">1. Sophrologie - Le Prana (x3)</h4>
                             <div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer</button></div>
                             <div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div>
-                            <div class="exercise-text"><p contenteditable="true" oninput="saveData()">Inspirer en tendant les bras, contraction, poings sur le thorax, puis relâcher (Répéter 3 fois).</p></div>
+                            <div class="exercise-text"><p contenteditable="true">Inspirer en tendant les bras, contraction, poings sur le thorax, puis relâcher (Répéter 3 fois).</p></div>
                         </div>
                         <div class="exercise-step">
                             <button class="delete-exercise-btn" onclick="removeExercise(this)" title="Supprimer cet exercice">🗑️</button>
-                            <h4 contenteditable="true" oninput="saveData()">2. Sophrologie - Le Nauli (x3)</h4>
+                            <h4 contenteditable="true">2. Sophrologie - Le Nauli (x3)</h4>
                             <div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer</button></div>
                             <div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div>
-                            <div class="exercise-text"><p contenteditable="true" oninput="saveData()">Souffler, retenir poumons vides et mouvements du nombril pour activer l'interne (Répéter 3 fois).</p></div>
+                            <div class="exercise-text"><p contenteditable="true">Souffler, retenir poumons vides et mouvements du nombril pour activer l'interne (Répéter 3 fois).</p></div>
                         </div>
                         <div class="exercise-step">
                             <button class="delete-exercise-btn" onclick="removeExercise(this)" title="Supprimer cet exercice">🗑️</button>
-                            <h4 contenteditable="true" oninput="saveData()">3. Sophrologie - Perception des Bras (x3)</h4>
+                            <h4 contenteditable="true">3. Sophrologie - Perception des Bras (x3)</h4>
                             <div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer</button></div>
                             <div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div>
-                            <div class="exercise-text"><p contenteditable="true" oninput="saveData()">Cercles avec les bras levés en apnée pour relancer le tonus général.</p></div>
+                            <div class="exercise-text"><p contenteditable="true">Cercles avec les bras levés en apnée pour relancer le tonus général.</p></div>
                         </div>
                         <div class="exercise-step">
                             <button class="delete-exercise-btn" onclick="removeExercise(this)" title="Supprimer cet exercice">🗑️</button>
-                            <h4 contenteditable="true" oninput="saveData()">4. Reiki - Activation du Plexus Solaire (4 min)</h4>
+                            <h4 contenteditable="true">4. Reiki - Activation du Plexus Solaire (4 min)</h4>
                             <div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer</button></div>
                             <div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div>
-                            <div class="exercise-text"><p contenteditable="true" oninput="saveData()">Apporter une source de chaleur vive et stimulante.</p></div>
+                            <div class="exercise-text"><p contenteditable="true">Apporter une source de chaleur vive et stimulante.</p></div>
                         </div>
                         <div class="exercise-step">
                             <button class="delete-exercise-btn" onclick="removeExercise(this)" title="Supprimer cet exercice">🗑️</button>
-                            <h4 contenteditable="true" oninput="saveData()">5. Reiki - Vitalité sur les Reins / Surrénales (3 min)</h4>
+                            <h4 contenteditable="true">5. Reiki - Vitalité sur les Reins / Surrénales (3 min)</h4>
                             <div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer</button></div>
                             <div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div>
-                            <div class="exercise-text"><p contenteditable="true" oninput="saveData()">Recharger les batteries et dissiper l'atonie.</p></div>
+                            <div class="exercise-text"><p contenteditable="true">Recharger les batteries et dissiper l'atonie.</p></div>
                         </div>
                     </div>
 
@@ -851,50 +851,50 @@
             </div>
 
             <!-- ================= THÉMATIQUE 9 ================= -->
-            <div id="theme-9" class="protocols-container">
+            <div id="theme-9" class="protocols-container" oninput="saveTheme(this)">
                 <button class="back-btn" onclick="backToThemes()">← Retour aux thématiques</button>
                 <div class="card">
                     <span class="badge protocole">Thématique 9 / 15</span>
-                    <h3 contenteditable="true" oninput="saveData()">Relâchement Dos & Nuque</h3>
-                    <p contenteditable="true" oninput="saveData()"><strong>Objectif :</strong> Soulager les crispations et la sédentarité.</p>
+                    <h3 contenteditable="true">Relâchement Dos & Nuque</h3>
+                    <p contenteditable="true"><strong>Objectif :</strong> Soulager les crispations et la sédentarité.</p>
                     <span class="duration-tag" style="margin-bottom: 1rem;">⏱️ Durée de la séance : 45 à 60 minutes</span>
-                    <div class="rule-box" contenteditable="true" oninput="saveData()">Règle d'or : Répétition par 3 avec temps d'accueil.</div>
+                    <div class="rule-box" contenteditable="true">Règle d'or : Répétition par 3 avec temps d'accueil.</div>
                     
                     <div class="exercises-list">
                         <div class="exercise-step">
                             <button class="delete-exercise-btn" onclick="removeExercise(this)" title="Supprimer cet exercice">🗑️</button>
-                            <h4 contenteditable="true" oninput="saveData()">1. Sophrologie - Crève-Cœur (Chameau) (x3)</h4>
+                            <h4 contenteditable="true">1. Sophrologie - Crève-Cœur (Chameau) (x3)</h4>
                             <div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer</button></div>
                             <div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div>
-                            <div class="exercise-text"><p contenteditable="true" oninput="saveData()">Mains sur les reins, inspirer et étirer le buste vers l'arrière pour ouvrir la cage thoracique (Répéter 3 fois).</p></div>
+                            <div class="exercise-text"><p contenteditable="true">Mains sur les reins, inspirer et étirer le buste vers l'arrière pour ouvrir la cage thoracique (Répéter 3 fois).</p></div>
                         </div>
                         <div class="exercise-step">
                             <button class="delete-exercise-btn" onclick="removeExercise(this)" title="Supprimer cet exercice">🗑️</button>
-                            <h4 contenteditable="true" oninput="saveData()">2. Sophrologie - Perception des Bras (x3)</h4>
+                            <h4 contenteditable="true">2. Sophrologie - Perception des Bras (x3)</h4>
                             <div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer</button></div>
                             <div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div>
-                            <div class="exercise-text"><p contenteditable="true" oninput="saveData()">Mouvements doux des bras pour libérer les trapèzes et les épaules.</p></div>
+                            <div class="exercise-text"><p contenteditable="true">Mouvements doux des bras pour libérer les trapèzes et les épaules.</p></div>
                         </div>
                         <div class="exercise-step">
                             <button class="delete-exercise-btn" onclick="removeExercise(this)" title="Supprimer cet exercice">🗑️</button>
-                            <h4 contenteditable="true" oninput="saveData()">3. Sophrologie - Perception Verticale (x3)</h4>
+                            <h4 contenteditable="true">3. Sophrologie - Perception Verticale (x3)</h4>
                             <div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer</button></div>
                             <div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div>
-                            <div class="exercise-text"><p contenteditable="true" oninput="saveData()">Étirement vertical pour replacer et détendre les vertèbres (Répéter 3 fois).</p></div>
+                            <div class="exercise-text"><p contenteditable="true">Étirement vertical pour replacer et détendre les vertèbres (Répéter 3 fois).</p></div>
                         </div>
                         <div class="exercise-step">
                             <button class="delete-exercise-btn" onclick="removeExercise(this)" title="Supprimer cet exercice">🗑️</button>
-                            <h4 contenteditable="true" oninput="saveData()">4. Reiki - Traitement Vertébral du Dos (4 min)</h4>
+                            <h4 contenteditable="true">4. Reiki - Traitement Vertébral du Dos (4 min)</h4>
                             <div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer</button></div>
                             <div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div>
-                            <div class="exercise-text"><p contenteditable="true" oninput="saveData()">Imposition le long de la colonne pour détendre les muscles profonds.</p></div>
+                            <div class="exercise-text"><p contenteditable="true">Imposition le long de la colonne pour détendre les muscles profonds.</p></div>
                         </div>
                         <div class="exercise-step">
                             <button class="delete-exercise-btn" onclick="removeExercise(this)" title="Supprimer cet exercice">🗑️</button>
-                            <h4 contenteditable="true" oninput="saveData()">5. Reiki - Relâchement des Épaules et Nuque (3 min)</h4>
+                            <h4 contenteditable="true">5. Reiki - Relâchement des Épaules et Nuque (3 min)</h4>
                             <div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer</button></div>
                             <div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div>
-                            <div class="exercise-text"><p contenteditable="true" oninput="saveData()">Mains en coupe sur les épaules pour fondre les nœuds de stress.</p></div>
+                            <div class="exercise-text"><p contenteditable="true">Mains en coupe sur les épaules pour fondre les nœuds de stress.</p></div>
                         </div>
                     </div>
 
@@ -903,50 +903,50 @@
             </div>
 
             <!-- ================= THÉMATIQUE 10 ================= -->
-            <div id="theme-10" class="protocols-container">
+            <div id="theme-10" class="protocols-container" oninput="saveTheme(this)">
                 <button class="back-btn" onclick="backToThemes()">← Retour aux thématiques</button>
                 <div class="card">
                     <span class="badge protocole">Thématique 10 / 15</span>
-                    <h3 contenteditable="true" oninput="saveData()">Gestion du Trac & Examens</h3>
-                    <p contenteditable="true" oninput="saveData()"><strong>Objectif :</strong> Contrôler la respiration et libérer la gorge avant un défi.</p>
+                    <h3 contenteditable="true">Gestion du Trac & Examens</h3>
+                    <p contenteditable="true"><strong>Objectif :</strong> Contrôler la respiration et libérer la gorge avant un défi.</p>
                     <span class="duration-tag" style="margin-bottom: 1rem;">⏱️ Durée de la séance : 45 à 60 minutes</span>
-                    <div class="rule-box" contenteditable="true" oninput="saveData()">Règle d'or : Répétition par 3 avec temps d'accueil.</div>
+                    <div class="rule-box" contenteditable="true">Règle d'or : Répétition par 3 avec temps d'accueil.</div>
                     
                     <div class="exercises-list">
                         <div class="exercise-step">
                             <button class="delete-exercise-btn" onclick="removeExercise(this)" title="Supprimer cet exercice">🗑️</button>
-                            <h4 contenteditable="true" oninput="saveData()">1. Sophrologie - Le Nauli (x3)</h4>
+                            <h4 contenteditable="true">1. Sophrologie - Le Nauli (x3)</h4>
                             <div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer</button></div>
                             <div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div>
-                            <div class="exercise-text"><p contenteditable="true" oninput="saveData()">Éliminer la boule au ventre liée au stress par le pompage abdominal (Répétition x3).</p></div>
+                            <div class="exercise-text"><p contenteditable="true">Éliminer la boule au ventre liée au stress par le pompage abdominal (Répétition x3).</p></div>
                         </div>
                         <div class="exercise-step">
                             <button class="delete-exercise-btn" onclick="removeExercise(this)" title="Supprimer cet exercice">🗑️</button>
-                            <h4 contenteditable="true" oninput="saveData()">2. Sophrologie - Le Tra Tac (x3)</h4>
+                            <h4 contenteditable="true">2. Sophrologie - Le Tra Tac (x3)</h4>
                             <div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer</button></div>
                             <div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div>
-                            <div class="exercise-text"><p contenteditable="true" oninput="saveData()">Fixer le pouce pour canaliser le mental et dissiper le trac (Répétition x3).</p></div>
+                            <div class="exercise-text"><p contenteditable="true">Fixer le pouce pour canaliser le mental et dissiper le trac (Répétition x3).</p></div>
                         </div>
                         <div class="exercise-step">
                             <button class="delete-exercise-btn" onclick="removeExercise(this)" title="Supprimer cet exercice">🗑️</button>
-                            <h4 contenteditable="true" oninput="saveData()">3. Sophrologie - Le Prana (x3)</h4>
+                            <h4 contenteditable="true">3. Sophrologie - Le Prana (x3)</h4>
                             <div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer</button></div>
                             <div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div>
-                            <div class="exercise-text"><p contenteditable="true" oninput="saveData()">Recentrer l'énergie sur le thorax pour retrouver de la contenance (Répétition x3).</p></div>
+                            <div class="exercise-text"><p contenteditable="true">Recentrer l'énergie sur le thorax pour retrouver de la contenance (Répétition x3).</p></div>
                         </div>
                         <div class="exercise-step">
                             <button class="delete-exercise-btn" onclick="removeExercise(this)" title="Supprimer cet exercice">🗑️</button>
-                            <h4 contenteditable="true" oninput="saveData()">4. Reiki - Traitement de la Gorge (4 min)</h4>
+                            <h4 contenteditable="true">4. Reiki - Traitement de la Gorge (4 min)</h4>
                             <div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer</button></div>
                             <div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div>
-                            <div class="exercise-text"><p contenteditable="true" oninput="saveData()">Fluidifier la parole, détendre les cordes vocales et dénouer l'angoisse.</p></div>
+                            <div class="exercise-text"><p contenteditable="true">Fluidifier la parole, détendre les cordes vocales et dénouer l'angoisse.</p></div>
                         </div>
                         <div class="exercise-step">
                             <button class="delete-exercise-btn" onclick="removeExercise(this)" title="Supprimer cet exercice">🗑️</button>
-                            <h4 contenteditable="true" oninput="saveData()">5. Reiki - Apaisement du Cœur (3 min)</h4>
+                            <h4 contenteditable="true">5. Reiki - Apaisement du Cœur (3 min)</h4>
                             <div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer</button></div>
                             <div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div>
-                            <div class="exercise-text"><p contenteditable="true" oninput="saveData()">Réguler les battements cardiaques et stabiliser les émotions.</p></div>
+                            <div class="exercise-text"><p contenteditable="true">Réguler les battements cardiaques et stabiliser les émotions.</p></div>
                         </div>
                     </div>
 
@@ -955,50 +955,50 @@
             </div>
 
             <!-- ================= THÉMATIQUE 11 ================= -->
-            <div id="theme-11" class="protocols-container">
+            <div id="theme-11" class="protocols-container" oninput="saveTheme(this)">
                 <button class="back-btn" onclick="backToThemes()">← Retour aux thématiques</button>
                 <div class="card">
                     <span class="badge protocole">Thématique 11 / 15</span>
-                    <h3 contenteditable="true" oninput="saveData()">Douceur & Auto-Bienveillance</h3>
-                    <p contenteditable="true" oninput="saveData()"><strong>Objectif :</strong> Cultiver l'amour de soi et la compassion.</p>
+                    <h3 contenteditable="true">Douceur & Auto-Bienveillance</h3>
+                    <p contenteditable="true"><strong>Objectif :</strong> Cultiver l'amour de soi et la compassion.</p>
                     <span class="duration-tag" style="margin-bottom: 1rem;">⏱️ Durée de la séance : 45 à 60 minutes</span>
-                    <div class="rule-box" contenteditable="true" oninput="saveData()">Règle d'or : Répétition par 3 avec temps d'accueil.</div>
+                    <div class="rule-box" contenteditable="true">Règle d'or : Répétition par 3 avec temps d'accueil.</div>
                     
                     <div class="exercises-list">
                         <div class="exercise-step">
                             <button class="delete-exercise-btn" onclick="removeExercise(this)" title="Supprimer cet exercice">🗑️</button>
-                            <h4 contenteditable="true" oninput="saveData()">1. Sophrologie - Crève-Cœur (Foetal) (x3)</h4>
+                            <h4 contenteditable="true">1. Sophrologie - Crève-Cœur (Foetal) (x3)</h4>
                             <div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer</button></div>
                             <div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div>
-                            <div class="exercise-text"><p contenteditable="true" oninput="saveData()">S'envelopper de ses bras, se câliner avec tendresse (Répéter 3 fois).</p></div>
+                            <div class="exercise-text"><p contenteditable="true">S'envelopper de ses bras, se câliner avec tendresse (Répéter 3 fois).</p></div>
                         </div>
                         <div class="exercise-step">
                             <button class="delete-exercise-btn" onclick="removeExercise(this)" title="Supprimer cet exercice">🗑️</button>
-                            <h4 contenteditable="true" oninput="saveData()">2. Sophrologie - Le Prana (x3)</h4>
+                            <h4 contenteditable="true">2. Sophrologie - Le Prana (x3)</h4>
                             <div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer</button></div>
                             <div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div>
-                            <div class="exercise-text"><p contenteditable="true" oninput="saveData()">Inspirer, amener les mains ouvertes vers la poitrine en contractant doucement, puis relâcher (Répéter 3 fois).</p></div>
+                            <div class="exercise-text"><p contenteditable="true">Inspirer, amener les mains ouvertes vers la poitrine en contractant doucement, puis relâcher (Répéter 3 fois).</p></div>
                         </div>
                         <div class="exercise-step">
                             <button class="delete-exercise-btn" onclick="removeExercise(this)" title="Supprimer cet exercice">🗑️</button>
-                            <h4 contenteditable="true" oninput="saveData()">3. Sophrologie - Vivance des Valeurs</h4>
+                            <h4 contenteditable="true">3. Sophrologie - Vivance des Valeurs</h4>
                             <div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer</button></div>
                             <div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div>
-                            <div class="exercise-text"><p contenteditable="true" oninput="saveData()">Assis, observer son monde intérieur. Debout, mouvements doux de tête. S'imprégner de ses valeurs et lever les bras en V en inspirant, s'étirer et pencher la tête en arrière en soufflant. Marche phronique et méditation assise.</p></div>
+                            <div class="exercise-text"><p contenteditable="true">Assis, observer son monde intérieur. Debout, mouvements doux de tête. S'imprégner de ses valeurs et lever les bras en V en inspirant, s'étirer et pencher la tête en arrière en soufflant. Marche phronique et méditation assise.</p></div>
                         </div>
                         <div class="exercise-step">
                             <button class="delete-exercise-btn" onclick="removeExercise(this)" title="Supprimer cet exercice">🗑️</button>
-                            <h4 contenteditable="true" oninput="saveData()">4. Reiki - Auto-traitement du Cœur (4 min)</h4>
+                            <h4 contenteditable="true">4. Reiki - Auto-traitement du Cœur (4 min)</h4>
                             <div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer</button></div>
                             <div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div>
-                            <div class="exercise-text"><p contenteditable="true" oninput="saveData()">Nourrir l'estime de soi et dissoudre les auto-critiques.</p></div>
+                            <div class="exercise-text"><p contenteditable="true">Nourrir l'estime de soi et dissoudre les auto-critiques.</p></div>
                         </div>
                         <div class="exercise-step">
                             <button class="delete-exercise-btn" onclick="removeExercise(this)" title="Supprimer cet exercice">🗑️</button>
-                            <h4 contenteditable="true" oninput="saveData()">5. Reiki - Imposition sur le Thymus (3 min)</h4>
+                            <h4 contenteditable="true">5. Reiki - Imposition sur le Thymus (3 min)</h4>
                             <div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer</button></div>
                             <div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div>
-                            <div class="exercise-text"><p contenteditable="true" oninput="saveData()">Stimuler l'immunité affective et l'énergie de douceur inconditionnelle.</p></div>
+                            <div class="exercise-text"><p contenteditable="true">Stimuler l'immunité affective et l'énergie de douceur inconditionnelle.</p></div>
                         </div>
                     </div>
 
@@ -1007,50 +1007,50 @@
             </div>
 
             <!-- ================= THÉMATIQUE 12 ================= -->
-            <div id="theme-12" class="protocols-container">
+            <div id="theme-12" class="protocols-container" oninput="saveTheme(this)">
                 <button class="back-btn" onclick="backToThemes()">← Retour aux thématiques</button>
                 <div class="card">
                     <span class="badge protocole">Thématique 12 / 15</span>
-                    <h3 contenteditable="true" oninput="saveData()">Récupération Post-Effort</h3>
-                    <p contenteditable="true" oninput="saveData()"><strong>Objectif :</strong> Redescendre en pression après le sport ou l'effort.</p>
+                    <h3 contenteditable="true">Récupération Post-Effort</h3>
+                    <p contenteditable="true"><strong>Objectif :</strong> Redescendre en pression après le sport ou l'effort.</p>
                     <span class="duration-tag" style="margin-bottom: 1rem;">⏱️ Durée de la séance : 45 à 60 minutes</span>
-                    <div class="rule-box" contenteditable="true" oninput="saveData()">Règle d'or : Répétition par 3 avec temps d'accueil.</div>
+                    <div class="rule-box" contenteditable="true">Règle d'or : Répétition par 3 avec temps d'accueil.</div>
                     
                     <div class="exercises-list">
                         <div class="exercise-step">
                             <button class="delete-exercise-btn" onclick="removeExercise(this)" title="Supprimer cet exercice">🗑️</button>
-                            <h4 contenteditable="true" oninput="saveData()">1. Sophrologie - Perception des Bras (x3)</h4>
+                            <h4 contenteditable="true">1. Sophrologie - Perception des Bras (x3)</h4>
                             <div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer</button></div>
                             <div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div>
-                            <div class="exercise-text"><p contenteditable="true" oninput="saveData()">Lever les bras, maintenir et relâcher doucement en soufflant (3 fois bras droit, 1 fois gauche, 1 fois les deux).</p></div>
+                            <div class="exercise-text"><p contenteditable="true">Lever les bras, maintenir et relâcher doucement en soufflant (3 fois bras droit, 1 fois gauche, 1 fois les deux).</p></div>
                         </div>
                         <div class="exercise-step">
                             <button class="delete-exercise-btn" onclick="removeExercise(this)" title="Supprimer cet exercice">🗑️</button>
-                            <h4 contenteditable="true" oninput="saveData()">2. Sophrologie - Perception des Jambes (x3)</h4>
+                            <h4 contenteditable="true">2. Sophrologie - Perception des Jambes (x3)</h4>
                             <div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer</button></div>
                             <div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div>
-                            <div class="exercise-text"><p contenteditable="true" oninput="saveData()">Lever les jambes, maintenir et baisser en soufflant (3 fois chaque jambe, 1 fois les deux).</p></div>
+                            <div class="exercise-text"><p contenteditable="true">Lever les jambes, maintenir et baisser en soufflant (3 fois chaque jambe, 1 fois les deux).</p></div>
                         </div>
                         <div class="exercise-step">
                             <button class="delete-exercise-btn" onclick="removeExercise(this)" title="Supprimer cet exercice">🗑️</button>
-                            <h4 contenteditable="true" oninput="saveData()">3. Sophrologie - Le Nauli (x3)</h4>
+                            <h4 contenteditable="true">3. Sophrologie - Le Nauli (x3)</h4>
                             <div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer</button></div>
                             <div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div>
-                            <div class="exercise-text"><p contenteditable="true" oninput="saveData()">Souffler, retenir poumons vides et détendre l'abdomen (Répétition x3).</p></div>
+                            <div class="exercise-text"><p contenteditable="true">Souffler, retenir poumons vides et détendre l'abdomen (Répétition x3).</p></div>
                         </div>
                         <div class="exercise-step">
                             <button class="delete-exercise-btn" onclick="removeExercise(this)" title="Supprimer cet exercice">🗑️</button>
-                            <h4 contenteditable="true" oninput="saveData()">4. Reiki - Traitement des Jambes et Pieds (4 min)</h4>
+                            <h4 contenteditable="true">4. Reiki - Traitement des Jambes et Pieds (4 min)</h4>
                             <div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer</button></div>
                             <div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div>
-                            <div class="exercise-text"><p contenteditable="true" oninput="saveData()">Délivrer une énergie drainante et relaxante sur les membres sollicités.</p></div>
+                            <div class="exercise-text"><p contenteditable="true">Délivrer une énergie drainante et relaxante sur les membres sollicités.</p></div>
                         </div>
                         <div class="exercise-step">
                             <button class="delete-exercise-btn" onclick="removeExercise(this)" title="Supprimer cet exercice">🗑️</button>
-                            <h4 contenteditable="true" oninput="saveData()">5. Reiki - Harmonisation Globale des Flux (3 min)</h4>
+                            <h4 contenteditable="true">5. Reiki - Harmonisation Globale des Flux (3 min)</h4>
                             <div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer</button></div>
                             <div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div>
-                            <div class="exercise-text"><p contenteditable="true" oninput="saveData()">Lisser l'aura et détendre l'ensemble de la structure corporelle.</p></div>
+                            <div class="exercise-text"><p contenteditable="true">Lisser l'aura et détendre l'ensemble de la structure corporelle.</p></div>
                         </div>
                     </div>
 
@@ -1059,50 +1059,50 @@
             </div>
 
             <!-- ================= THÉMATIQUE 13 ================= -->
-            <div id="theme-13" class="protocols-container">
+            <div id="theme-13" class="protocols-container" oninput="saveTheme(this)">
                 <button class="back-btn" onclick="backToThemes()">← Retour aux thématiques</button>
                 <div class="card">
                     <span class="badge protocole">Thématique 13 / 15</span>
-                    <h3 contenteditable="true" oninput="saveData()">Clarté d'Esprit & Focus</h3>
-                    <p contenteditable="true" oninput="saveData()"><strong>Objectif :</strong> Optimiser la concentration intellectuelle.</p>
+                    <h3 contenteditable="true">Clarté d'Esprit & Focus</h3>
+                    <p contenteditable="true"><strong>Objectif :</strong> Optimiser la concentration intellectuelle.</p>
                     <span class="duration-tag" style="margin-bottom: 1rem;">⏱️ Durée de la séance : 45 à 60 minutes</span>
-                    <div class="rule-box" contenteditable="true" oninput="saveData()">Règle d'or : Répétition par 3 avec temps d'accueil.</div>
+                    <div class="rule-box" contenteditable="true">Règle d'or : Répétition par 3 avec temps d'accueil.</div>
                     
                     <div class="exercises-list">
                         <div class="exercise-step">
                             <button class="delete-exercise-btn" onclick="removeExercise(this)" title="Supprimer cet exercice">🗑️</button>
-                            <h4 contenteditable="true" oninput="saveData()">1. Sophrologie - Le Tra Tac (x3)</h4>
+                            <h4 contenteditable="true">1. Sophrologie - Le Tra Tac (x3)</h4>
                             <div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer</button></div>
                             <div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div>
-                            <div class="exercise-text"><p contenteditable="true" oninput="saveData()">Fixer le pouce, vue trouble, pouce entre les sourcils pour focaliser l'attention (Répétition x3).</p></div>
+                            <div class="exercise-text"><p contenteditable="true">Fixer le pouce, vue trouble, pouce entre les sourcils pour focaliser l'attention (Répétition x3).</p></div>
                         </div>
                         <div class="exercise-step">
                             <button class="delete-exercise-btn" onclick="removeExercise(this)" title="Supprimer cet exercice">🗑️</button>
-                            <h4 contenteditable="true" oninput="saveData()">2. Sophrologie - Perception Verticale (x3)</h4>
+                            <h4 contenteditable="true">2. Sophrologie - Perception Verticale (x3)</h4>
                             <div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer</button></div>
                             <div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div>
-                            <div class="exercise-text"><p contenteditable="true" oninput="saveData()">Mains croisées au-dessus de la tête, étirement vertical pour clarifier l'esprit (Répétition x3).</p></div>
+                            <div class="exercise-text"><p contenteditable="true">Mains croisées au-dessus de la tête, étirement vertical pour clarifier l'esprit (Répétition x3).</p></div>
                         </div>
                         <div class="exercise-step">
                             <button class="delete-exercise-btn" onclick="removeExercise(this)" title="Supprimer cet exercice">🗑️</button>
-                            <h4 contenteditable="true" oninput="saveData()">3. Sophrologie - Le Prana (x3)</h4>
+                            <h4 contenteditable="true">3. Sophrologie - Le Prana (x3)</h4>
                             <div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer</button></div>
                             <div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div>
-                            <div class="exercise-text"><p contenteditable="true" oninput="saveData()">Rassemblement de l'énergie au centre du thorax (Répétition x3).</p></div>
+                            <div class="exercise-text"><p contenteditable="true">Rassemblement de l'énergie au centre du thorax (Répétition x3).</p></div>
                         </div>
                         <div class="exercise-step">
                             <button class="delete-exercise-btn" onclick="removeExercise(this)" title="Supprimer cet exercice">🗑️</button>
-                            <h4 contenteditable="true" oninput="saveData()">4. Reiki - Purifier le Troisième Œil (4 min)</h4>
+                            <h4 contenteditable="true">4. Reiki - Purifier le Troisième Œil (4 min)</h4>
                             <div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer</button></div>
                             <div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div>
-                            <div class="exercise-text"><p contenteditable="true" oninput="saveData()">Imposition frontale pour aiguiser l'intuition et la perspicacité.</p></div>
+                            <div class="exercise-text"><p contenteditable="true">Imposition frontale pour aiguiser l'intuition et la perspicacité.</p></div>
                         </div>
                         <div class="exercise-step">
                             <button class="delete-exercise-btn" onclick="removeExercise(this)" title="Supprimer cet exercice">🗑️</button>
-                            <h4 contenteditable="true" oninput="saveData()">5. Reiki - Connexion Couronne et Tête (3 min)</h4>
+                            <h4 contenteditable="true">5. Reiki - Connexion Couronne et Tête (3 min)</h4>
                             <div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer</button></div>
                             <div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div>
-                            <div class="exercise-text"><p contenteditable="true" oninput="saveData()">Stabiliser l'accès à la conscience claire et structurée.</p></div>
+                            <div class="exercise-text"><p contenteditable="true">Stabiliser l'accès à la conscience claire et structurée.</p></div>
                         </div>
                     </div>
 
@@ -1111,50 +1111,50 @@
             </div>
 
             <!-- ================= THÉMATIQUE 14 ================= -->
-            <div id="theme-14" class="protocols-container">
+            <div id="theme-14" class="protocols-container" oninput="saveTheme(this)">
                 <button class="back-btn" onclick="backToThemes()">← Retour aux thématiques</button>
                 <div class="card">
                     <span class="badge protocole">Thématique 14 / 15</span>
-                    <h3 contenteditable="true" oninput="saveData()">Paix Intérieure & Silence</h3>
-                    <p contenteditable="true" oninput="saveData()"><strong>Objectif :</strong> S'isoler du monde et s'offrir une bulle de calme.</p>
+                    <h3 contenteditable="true">Paix Intérieure & Silence</h3>
+                    <p contenteditable="true"><strong>Objectif :</strong> S'isoler du monde et s'offrir une bulle de calme.</p>
                     <span class="duration-tag" style="margin-bottom: 1rem;">⏱️ Durée de la séance : 45 à 60 minutes</span>
-                    <div class="rule-box" contenteditable="true" oninput="saveData()">Règle d'or : Répétition par 3 avec temps d'accueil.</div>
+                    <div class="rule-box" contenteditable="true">Règle d'or : Répétition par 3 avec temps d'accueil.</div>
                     
                     <div class="exercises-list">
                         <div class="exercise-step">
                             <button class="delete-exercise-btn" onclick="removeExercise(this)" title="Supprimer cet exercice">🗑️</button>
-                            <h4 contenteditable="true" oninput="saveData()">1. Sophrologie - Vivance des Valeurs</h4>
+                            <h4 contenteditable="true">1. Sophrologie - Vivance des Valeurs</h4>
                             <div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer</button></div>
                             <div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div>
-                            <div class="exercise-text"><p contenteditable="true" oninput="saveData()">S'asseoir et méditer sur sa place et son monde intérieur (suivi de marche phronique).</p></div>
+                            <div class="exercise-text"><p contenteditable="true">S'asseoir et méditer sur sa place et son monde intérieur (suivi de marche phronique).</p></div>
                         </div>
                         <div class="exercise-step">
                             <button class="delete-exercise-btn" onclick="removeExercise(this)" title="Supprimer cet exercice">🗑️</button>
-                            <h4 contenteditable="true" oninput="saveData()">2. Sophrologie - Le Tra Tac (x3)</h4>
+                            <h4 contenteditable="true">2. Sophrologie - Le Tra Tac (x3)</h4>
                             <div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer</button></div>
                             <div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div>
-                            <div class="exercise-text"><p contenteditable="true" oninput="saveData()">Intériorisation du regard et recentrage profond (Répétition x3).</p></div>
+                            <div class="exercise-text"><p contenteditable="true">Intériorisation du regard et recentrage profond (Répétition x3).</p></div>
                         </div>
                         <div class="exercise-step">
                             <button class="delete-exercise-btn" onclick="removeExercise(this)" title="Supprimer cet exercice">🗑️</button>
-                            <h4 contenteditable="true" oninput="saveData()">3. Sophrologie - Le Prana (x3)</h4>
+                            <h4 contenteditable="true">3. Sophrologie - Le Prana (x3)</h4>
                             <div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer</button></div>
                             <div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div>
-                            <div class="exercise-text"><p contenteditable="true" oninput="saveData()">Ramener le calme absolu au centre de soi (Répétition x3).</p></div>
+                            <div class="exercise-text"><p contenteditable="true">Ramener le calme absolu au centre de soi (Répétition x3).</p></div>
                         </div>
                         <div class="exercise-step">
                             <button class="delete-exercise-btn" onclick="removeExercise(this)" title="Supprimer cet exercice">🗑️</button>
-                            <h4 contenteditable="true" oninput="saveData()">4. Reiki - Silence du Cœur (4 min)</h4>
+                            <h4 contenteditable="true">4. Reiki - Silence du Cœur (4 min)</h4>
                             <div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer</button></div>
                             <div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div>
-                            <div class="exercise-text"><p contenteditable="true" oninput="saveData()">Imposition douce sur la poitrine pour goûter au silence absolu.</p></div>
+                            <div class="exercise-text"><p contenteditable="true">Imposition douce sur la poitrine pour goûter au silence absolu.</p></div>
                         </div>
                         <div class="exercise-step">
                             <button class="delete-exercise-btn" onclick="removeExercise(this)" title="Supprimer cet exercice">🗑️</button>
-                            <h4 contenteditable="true" oninput="saveData()">5. Reiki - Imposition sur les Oreilles / Tempes (3 min)</h4>
+                            <h4 contenteditable="true">5. Reiki - Imposition sur les Oreilles / Tempes (3 min)</h4>
                             <div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer</button></div>
                             <div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div>
-                            <div class="exercise-text"><p contenteditable="true" oninput="saveData()">Couper les bruits parasites et intérioriser pleinement l'écoute.</p></div>
+                            <div class="exercise-text"><p contenteditable="true">Couper les bruits parasites et intérioriser pleinement l'écoute.</p></div>
                         </div>
                     </div>
 
@@ -1163,50 +1163,50 @@
             </div>
 
             <!-- ================= THÉMATIQUE 15 ================= -->
-            <div id="theme-15" class="protocols-container">
+            <div id="theme-15" class="protocols-container" oninput="saveTheme(this)">
                 <button class="back-btn" onclick="backToThemes()">← Retour aux thématiques</button>
                 <div class="card">
                     <span class="badge protocole">Thématique 15 / 15</span>
-                    <h3 contenteditable="true" oninput="saveData()">Protocole Harmonisation Globale</h3>
-                    <p contenteditable="true" oninput="saveData()"><strong>Objectif :</strong> La séance complète d'harmonisation corps-esprit.</p>
+                    <h3 contenteditable="true">Protocole Harmonisation Globale</h3>
+                    <p contenteditable="true"><strong>Objectif :</strong> La séance complète d'harmonisation corps-esprit.</p>
                     <span class="duration-tag" style="margin-bottom: 1rem;">⏱️ Durée de la séance : 45 à 60 minutes</span>
-                    <div class="rule-box" contenteditable="true" oninput="saveData()">Règle d'or : Répétition par 3 avec temps d'accueil.</div>
+                    <div class="rule-box" contenteditable="true">Règle d'or : Répétition par 3 avec temps d'accueil.</div>
                     
                     <div class="exercises-list">
                         <div class="exercise-step">
                             <button class="delete-exercise-btn" onclick="removeExercise(this)" title="Supprimer cet exercice">🗑️</button>
-                            <h4 contenteditable="true" oninput="saveData()">1. Sophrologie - Le Prana (x3)</h4>
+                            <h4 contenteditable="true">1. Sophrologie - Le Prana (x3)</h4>
                             <div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer</button></div>
                             <div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div>
-                            <div class="exercise-text"><p contenteditable="true" oninput="saveData()">Relancer l'énergie vitale dans tous les centres (Répétition x3).</p></div>
+                            <div class="exercise-text"><p contenteditable="true">Relancer l'énergie vitale dans tous les centres (Répétition x3).</p></div>
                         </div>
                         <div class="exercise-step">
                             <button class="delete-exercise-btn" onclick="removeExercise(this)" title="Supprimer cet exercice">🗑️</button>
-                            <h4 contenteditable="true" oninput="saveData()">2. Sophrologie - Perception Verticale (x3)</h4>
+                            <h4 contenteditable="true">2. Sophrologie - Perception Verticale (x3)</h4>
                             <div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer</button></div>
                             <div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div>
-                            <div class="exercise-text"><p contenteditable="true" oninput="saveData()">Unifier verticalement tout le corps (Répétition x3).</p></div>
+                            <div class="exercise-text"><p contenteditable="true">Unifier verticalement tout le corps (Répétition x3).</p></div>
                         </div>
                         <div class="exercise-step">
                             <button class="delete-exercise-btn" onclick="removeExercise(this)" title="Supprimer cet exercice">🗑️</button>
-                            <h4 contenteditable="true" oninput="saveData()">3. Sophrologie - Vivance des Valeurs</h4>
+                            <h4 contenteditable="true">3. Sophrologie - Vivance des Valeurs</h4>
                             <div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer</button></div>
                             <div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div>
-                            <div class="exercise-text"><p contenteditable="true" oninput="saveData()">Intégration complète des valeurs et ancrage final par la marche phronique.</p></div>
+                            <div class="exercise-text"><p contenteditable="true">Intégration complète des valeurs et ancrage final par la marche phronique.</p></div>
                         </div>
                         <div class="exercise-step">
                             <button class="delete-exercise-btn" onclick="removeExercise(this)" title="Supprimer cet exercice">🗑️</button>
-                            <h4 contenteditable="true" oninput="saveData()">4. Reiki - Grand Circuit des Chakras (5 min)</h4>
+                            <h4 contenteditable="true">4. Reiki - Grand Circuit des Chakras (5 min)</h4>
                             <div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer</button></div>
                             <div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div>
-                            <div class="exercise-text"><p contenteditable="true" oninput="saveData()">Passage méthodique sur l'ensemble des centres d'énergie majeurs.</p></div>
+                            <div class="exercise-text"><p contenteditable="true">Passage méthodique sur l'ensemble des centres d'énergie majeurs.</p></div>
                         </div>
                         <div class="exercise-step">
                             <button class="delete-exercise-btn" onclick="removeExercise(this)" title="Supprimer cet exercice">🗑️</button>
-                            <h4 contenteditable="true" oninput="saveData()">5. Reiki - Scellement et Bilan Énergétique (3 min)</h4>
+                            <h4 contenteditable="true">5. Reiki - Scellement et Bilan Énergétique (3 min)</h4>
                             <div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer</button></div>
                             <div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div>
-                            <div class="exercise-text"><p contenteditable="true" oninput="saveData()">Lissage final de l'aura pour ancrer durablement la séance.</p></div>
+                            <div class="exercise-text"><p contenteditable="true">Lissage final de l'aura pour ancrer durablement la séance.</p></div>
                         </div>
                     </div>
 
@@ -1219,11 +1219,10 @@
     </div>
 
     <footer>
-        <p contenteditable="true" oninput="saveData()">Créé avec soin pour votre bien-être • HTML / CSS / JavaScript / Firebase</p>
+        <p contenteditable="true" oninput="saveGlobal()">Créé avec soin pour votre bien-être • HTML / CSS / JavaScript / Firebase</p>
     </footer>
 
     <script>
-        // CONFIGURATION FIREBASE
         const firebaseConfig = {
             apiKey: "AIzaSyDb0Eaizj1NQD5G_USq0inXB...",
             authDomain: "reiki-so.firebaseapp.com",
@@ -1235,7 +1234,6 @@
 
         firebase.initializeApp(firebaseConfig);
         const db = firebase.firestore();
-        const docId = "donnees_harmonie";
 
         function switchTab(tabId, event) {
             const sections = document.querySelectorAll('.section-content');
@@ -1272,21 +1270,22 @@
             newStep.className = 'exercise-step';
             newStep.innerHTML = `
                 <button class="delete-exercise-btn" onclick="removeExercise(this)" title="Supprimer cet exercice">🗑️</button>
-                <h4 contenteditable="true" oninput="saveData()">Nouvel exercice</h4>
+                <h4 contenteditable="true">Nouvel exercice</h4>
                 <div class="photo-controls"><button class="photo-btn" onclick="addPhotoSlot(this)">+ Ajouter</button><button class="photo-btn" onclick="removePhotoSlot(this)">- Retirer</button></div>
                 <div class="photo-gallery"><div class="photo-slot" onclick="this.querySelector('input').click()"><span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)"></div></div>
-                <div class="exercise-text"><p contenteditable="true" oninput="saveData()">Description de votre nouvel exercice ici...</p></div>
+                <div class="exercise-text"><p contenteditable="true">Description de votre nouvel exercice ici...</p></div>
             `;
             list.appendChild(newStep);
-            saveData();
+            saveTheme(card.closest('.protocols-container'));
         }
 
         function removeExercise(btn) {
             const step = btn.closest('.exercise-step');
+            const container = btn.closest('.protocols-container');
             const list = step.parentElement;
             if (list.querySelectorAll('.exercise-step').length > 1) {
                 list.removeChild(step);
-                saveData();
+                saveTheme(container);
             } else {
                 alert("Impossible de supprimer le dernier exercice de la séance.");
             }
@@ -1294,29 +1293,31 @@
 
         function addPhotoSlot(btn) {
             const stepDiv = btn.closest('.exercise-step');
+            const container = btn.closest('.protocols-container');
             const gallery = stepDiv.querySelector('.photo-gallery');
             const newSlot = document.createElement('div');
             newSlot.className = 'photo-slot';
             newSlot.setAttribute('onclick', "this.querySelector('input').click()");
             newSlot.innerHTML = '<span>+ Photo</span><input type="file" accept="image/*" onchange="previewImage(event, this)">';
             gallery.appendChild(newSlot);
-            saveData();
+            saveTheme(container);
         }
 
         function removePhotoSlot(btn) {
             const stepDiv = btn.closest('.exercise-step');
+            const container = btn.closest('.protocols-container');
             const gallery = stepDiv.querySelector('.photo-gallery');
             const slots = gallery.querySelectorAll('.photo-slot');
             if (slots.length > 1) {
                 gallery.removeChild(slots[slots.length - 1]);
-                saveData();
+                saveTheme(container);
             }
         }
 
-        // REDimensionnement automatique et propre des photos pour la sauvegarde
         function previewImage(event, input) {
             if (event.stopPropagation) event.stopPropagation();
             const slot = input.parentElement;
+            const container = input.closest('.protocols-container');
             const file = input.files[0];
             if (file) {
                 const reader = new FileReader();
@@ -1325,8 +1326,6 @@
                     img.onload = function() {
                         const canvas = document.createElement('canvas');
                         const ctx = canvas.getContext('2d');
-                        
-                        // Redimensionnement intelligent pour alléger le poids
                         let width = img.width;
                         let height = img.height;
                         const maxDim = 600;
@@ -1337,7 +1336,6 @@
                             width *= maxDim / height;
                             height = maxDim;
                         }
-                        
                         canvas.width = width;
                         canvas.height = height;
                         ctx.drawImage(img, 0, 0, width, height);
@@ -1353,7 +1351,7 @@
                         const span = slot.querySelector('span');
                         if (span) span.style.display = 'none';
                         
-                        saveData();
+                        saveTheme(container);
                     }
                     img.src = e.target.result;
                 }
@@ -1361,46 +1359,50 @@
             }
         }
 
-        // ENREGISTREMENT DANS FIREBASE
-        function saveData() {
-            const protocolsData = {};
-            document.querySelectorAll('.protocols-container').forEach((cont) => {
-                const id = cont.id;
-                if (id) {
-                    protocolsData[id] = cont.innerHTML;
-                }
-            });
-
-            db.collection("appData").doc(docId).set({
-                protocols: protocolsData,
+        // ENREGISTREMENT SÉPARÉ PAR THÉMATIQUE (Indépendant)
+        function saveTheme(container) {
+            const themeId = container.id;
+            db.collection("appData").doc("theme_" + themeId).set({
+                html: container.innerHTML,
                 updatedAt: new Date()
             })
             .then(() => {
-                console.log("Enregistré avec succès !");
+                console.log("Thématique " + themeId + " enregistrée !");
             })
             .catch((error) => {
-                console.error("Erreur d'enregistrement : ", error);
+                console.error("Erreur : ", error);
             });
         }
 
-        // CHARGEMENT DES DONNÉES
-            function loadSavedData() {
-            db.collection("appData").doc(docId).get().then((doc) => {
-                if (doc.exists) {
-                    const data = doc.data();
-                    if (data.protocols) {
-                        document.querySelectorAll('.protocols-container').forEach((cont) => {
-                            const id = cont.id;
-                            if (id && data.protocols[id]) {
-                                cont.innerHTML = data.protocols[id];
-                            }
-                        });
-                    }
-                    console.log("Données chargées !");
-                }
-            }).catch((error) => {
-                console.log("Erreur lors du chargement : ", error);
+        function saveGlobal() {
+            // Sauvegarde de l'en-tête et de l'accueil
+            const accueilContent = document.getElementById('accueil').innerHTML;
+            db.collection("appData").doc("accueil_global").set({
+                html: accueilContent,
+                updatedAt: new Date()
             });
+        }
+
+        // CHARGEMENT DE TOUTES LES DONNÉES SÉPARÉMENT
+        function loadSavedData() {
+            // Charger l'accueil
+            db.collection("appData").doc("accueil_global").get().then((doc) => {
+                if (doc.exists && doc.data().html) {
+                    document.getElementById('accueil').innerHTML = doc.data().html;
+                }
+            });
+
+            // Charger chaque thématique indépendamment
+            const containers = document.querySelectorAll('.protocols-container');
+            containers.forEach((cont) => {
+                const themeId = cont.id;
+                db.collection("appData").doc("theme_" + themeId).get().then((doc) => {
+                    if (doc.exists && doc.data().html) {
+                        cont.innerHTML = doc.data().html;
+                    }
+                });
+            });
+            console.log("Toutes les données ont été chargées avec succès !");
         }
     </script>
 
