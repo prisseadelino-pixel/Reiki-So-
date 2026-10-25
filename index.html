@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Harmonie Intérieure : Sophrologie & Reiki</title>
+    
+    <!-- SDK Firebase Compat -->
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+
     <style>
         :root {
             --primary-color: #5b7065;      /* Vert sauge profond et zen */
@@ -402,7 +407,7 @@
             <div class="card">
                 <h3 contenteditable="true" oninput="saveData()">Bienvenue dans votre espace d'accompagnement</h3>
                 <p contenteditable="true" oninput="saveData()">Chaque thématique propose une séance complète et structurée de <strong>45 à 60 minutes</strong>, associant vos exercices de sophrologie officiels et des approches énergétiques Reiki adaptées.</p>
-                <p contenteditable="true" oninput="saveData()">Vous pouvez modifier tous les textes, ajouter/supprimer des exercices ou des photos : tout est enregistré automatiquement dans votre navigateur.</p>
+                <p contenteditable="true" oninput="saveData()">Vous pouvez modifier tous les textes, ajouter/supprimer des exercices ou des photos : tout est enregistré automatiquement sur le cloud.</p>
             </div>
         </div>
 
@@ -1214,10 +1219,25 @@
     </div>
 
     <footer>
-        <p contenteditable="true" oninput="saveData()">Créé avec soin pour votre bien-être • HTML / CSS / JavaScript</p>
+        <p contenteditable="true" oninput="saveData()">Créé avec soin pour votre bien-être • HTML / CSS / JavaScript / Firebase</p>
     </footer>
 
     <script>
+        // CONFIGURATION FIREBASE (Vos clés personnelles)
+        const firebaseConfig = {
+            apiKey: "AIzaSyDb0Eaizj1NQD5G_USq0inXB...",
+            authDomain: "reiki-so.firebaseapp.com",
+            projectId: "reiki-so",
+            storageBucket: "reiki-so.firebasestorage.app",
+            messagingSenderId: "362947198803",
+            appId: "1:362947198803:web:05a7cdf80f1..."
+        };
+
+        // Initialisation de Firebase
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+        const docId = "donnees_harmonie";
+
         function switchTab(tabId, event) {
             const sections = document.querySelectorAll('.section-content');
             sections.forEach(sec => sec.classList.remove('active'));
@@ -1315,6 +1335,7 @@
             }
         }
 
+        // Enregistrement automatique sur Firebase Firestore
         function saveData() {
             const protocolsData = {};
             document.querySelectorAll('.protocols-container').forEach((cont) => {
@@ -1323,35 +1344,51 @@
                     protocolsData[id] = cont.innerHTML;
                 }
             });
-            localStorage.setItem('harmonie_protocols_html', JSON.stringify(protocolsData));
 
             const editableGlobals = document.querySelectorAll('header [contenteditable="true"], #accueil [contenteditable="true"], footer [contenteditable="true"]');
             const globalsData = Array.from(editableGlobals).map(el => el.innerHTML);
-            localStorage.setItem('harmonie_globals', JSON.stringify(globalsData));
+
+            db.collection("appData").doc(docId).set({
+                protocols: protocolsData,
+                globals: globalsData,
+                updatedAt: firebase.firestore.FieldValue.serverTimestamp()
+            })
+            .then(() => {
+                console.log("Synchronisé avec Firebase !");
+            })
+            .catch((error) => {
+                console.error("Erreur de synchronisation : ", error);
+            });
         }
 
+        // Chargement des données depuis Firebase Firestore
         function loadSavedData() {
-            const savedProtocols = localStorage.getItem('harmonie_protocols_html');
-            if (savedProtocols) {
-                const data = JSON.parse(savedProtocols);
-                document.querySelectorAll('.protocols-container').forEach((cont) => {
-                    const id = cont.id;
-                    if (id && data[id]) {
-                        cont.innerHTML = data[id];
+            db.collection("appData").doc(docId).get().then((doc) => {
+                if (doc.exists) {
+                    const data = doc.data();
+                    
+                    if (data.protocols) {
+                        document.querySelectorAll('.protocols-container').forEach((cont) => {
+                            const id = cont.id;
+                            if (id && data.protocols[id]) {
+                                cont.innerHTML = data.protocols[id];
+                            }
+                        });
                     }
-                });
-            }
 
-            const savedGlobals = localStorage.getItem('harmonie_globals');
-            if (savedGlobals) {
-                const globalsData = JSON.parse(savedGlobals);
-                const editableGlobals = document.querySelectorAll('header [contenteditable="true"], #accueil [contenteditable="true"], footer [contenteditable="true"]');
-                editableGlobals.forEach((el, index) => {
-                    if (globalsData[index] !== undefined) {
-                        el.innerHTML = globalsData[index];
+                    if (data.globals) {
+                        const editableGlobals = document.querySelectorAll('header [contenteditable="true"], #accueil [contenteditable="true"], footer [contenteditable="true"]');
+                        editableGlobals.forEach((el, index) => {
+                            if (data.globals[index] !== undefined) {
+                                el.innerHTML = data.globals[index];
+                            }
+                        });
                     }
-                });
-            }
+                    console.log("Données chargées depuis Firebase !");
+                }
+            }).catch((error) => {
+                console.log("Erreur lors du chargement : ", error);
+            });
         }
     </script>
 
