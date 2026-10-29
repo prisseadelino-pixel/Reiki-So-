@@ -57,6 +57,7 @@
             font-size: 2.4rem;
             font-weight: 400;
             letter-spacing: 1px;
+            outline: none;
         }
 
         header p {
@@ -64,6 +65,16 @@
             font-size: 1.1rem;
             opacity: 0.95;
             font-weight: 300;
+            outline: none;
+        }
+
+        header h1[contenteditable="true"]:hover,
+        header p[contenteditable="true"]:hover,
+        .card h3[contenteditable="true"]:hover,
+        .card p[contenteditable="true"]:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            cursor: text;
         }
 
         .container {
@@ -205,6 +216,11 @@
             color: var(--primary-color);
             font-size: 1.5rem;
             font-weight: 500;
+            outline: none;
+        }
+
+        .card p {
+            outline: none;
         }
 
         .badge {
@@ -229,6 +245,7 @@
             border-radius: 8px;
             font-size: 0.95rem;
             color: #3b4a43;
+            outline: none;
         }
 
         .exercise-step {
@@ -250,7 +267,8 @@
         }
 
         .exercise-step h4[contenteditable="true"]:hover,
-        .exercise-text p[contenteditable="true"]:hover {
+        .exercise-text p[contenteditable="true"]:hover,
+        .rule-box[contenteditable="true"]:hover {
             background-color: rgba(91, 112, 101, 0.05);
             border-radius: 4px;
             cursor: text;
@@ -384,6 +402,7 @@
             margin-top: 4rem;
             font-size: 0.9rem;
             border-top: 1px solid var(--border-color);
+            outline: none;
         }
     </style>
 </head>
@@ -391,8 +410,8 @@
 
     <header>
         <img src="https://i49.servimg.com/u/f49/11/31/89/70/picsar11.jpg" alt="Logo Harmonie Intérieure" class="app-logo">
-        <h1 contenteditable="true" oninput="saveGlobal()">Harmonie Intérieure</h1>
-        <p contenteditable="true" oninput="saveGlobal()">Reiki-So : l'alliance de la Sophrologie et du Reiki</p>
+        <h1 contenteditable="true" oninput="saveHeader()">Harmonie Intérieure</h1>
+        <p contenteditable="true" oninput="saveHeader()">Reiki-So : l'alliance de la Sophrologie et du Reiki</p>
     </header>
 
     <div class="container">
@@ -402,12 +421,12 @@
             <button class="tab-btn" onclick="switchTab('protocoles', event)">15 Thématiques</button>
         </div>
 
-        <!-- Section Accueil -->
-        <div id="accueil" class="section-content active">
+        <!-- Section Accueil (Modifiable et Sauvegardée) -->
+        <div id="accueil" class="section-content active" oninput="saveHome()">
             <div class="card">
-                <h3 contenteditable="true" oninput="saveGlobal()">Bienvenue dans votre espace d'accompagnement</h3>
-                <p contenteditable="true" oninput="saveGlobal()">Chaque thématique propose une séance complète et structurée de <strong>45 à 60 minutes</strong>, associant vos exercices de sophrologie officiels et des approches énergétiques Reiki adaptées.</p>
-                <p contenteditable="true" oninput="saveGlobal()">Vous pouvez modifier tous les textes, ajouter/supprimer des exercices ou des photos : tout est enregistré automatiquement sur le cloud.</p>
+                <h3 contenteditable="true">Bienvenue dans votre espace d'accompagnement</h3>
+                <p contenteditable="true">Chaque thématique propose une séance complète et structurée de <strong>45 à 60 minutes</strong>, associant vos exercices de sophrologie officiels et des approches énergétiques Reiki adaptées.</p>
+                <p contenteditable="true">Vous pouvez modifier tous les textes, ajouter/supprimer des exercices ou des photos : tout est enregistré automatiquement sur le cloud.</p>
             </div>
         </div>
 
@@ -1218,8 +1237,8 @@
 
     </div>
 
-    <footer>
-        <p contenteditable="true" oninput="saveGlobal()">Créé avec soin pour votre bien-être • HTML / CSS / JavaScript / Firebase</p>
+    <footer contenteditable="true" oninput="saveHeader()">
+        <p>Créé avec soin pour votre bien-être • HTML / CSS / JavaScript / Firebase</p>
     </footer>
 
     <script>
@@ -1359,36 +1378,52 @@
             }
         }
 
-        // ENREGISTREMENT SÉPARÉ PAR THÉMATIQUE (Indépendant)
+        // ENREGISTREMENT SÉPARÉ DES THÉMATIQUES
         function saveTheme(container) {
             const themeId = container.id;
             db.collection("appData").doc("theme_" + themeId).set({
                 html: container.innerHTML,
                 updatedAt: new Date()
-            })
-            .then(() => {
-                console.log("Thématique " + themeId + " enregistrée !");
-            })
-            .catch((error) => {
-                console.error("Erreur : ", error);
-            });
+            }).catch((error) => { console.error("Erreur : ", error); });
         }
 
-        function saveGlobal() {
-            // Sauvegarde de l'en-tête et de l'accueil
-            const accueilContent = document.getElementById('accueil').innerHTML;
-            db.collection("appData").doc("accueil_global").set({
-                html: accueilContent,
+        // ENREGISTREMENT DE LA PAGE D'ACCUEIL ET DE L'EN-TÊTE
+        function saveHome() {
+            const homeContent = document.getElementById('accueil').innerHTML;
+            db.collection("appData").doc("page_accueil").set({
+                html: homeContent,
                 updatedAt: new Date()
-            });
+            }).catch((error) => { console.error("Erreur : ", error); });
         }
 
-        // CHARGEMENT DE TOUTES LES DONNÉES SÉPARÉMENT
+        function saveHeader() {
+            const headerTitle = document.querySelector('header h1').innerHTML;
+            const headerSub = document.querySelector('header p').innerHTML;
+            const footerText = document.querySelector('footer').innerHTML;
+            db.collection("appData").doc("header_footer").set({
+                title: headerTitle,
+                subtitle: headerSub,
+                footer: footerText,
+                updatedAt: new Date()
+            }).catch((error) => { console.error("Erreur : ", error); });
+        }
+
+        // CHARGEMENT DE TOUTES LES DONNÉES AU DÉMARRAGE
         function loadSavedData() {
             // Charger l'accueil
-            db.collection("appData").doc("accueil_global").get().then((doc) => {
+            db.collection("appData").doc("page_accueil").get().then((doc) => {
                 if (doc.exists && doc.data().html) {
                     document.getElementById('accueil').innerHTML = doc.data().html;
+                }
+            });
+
+            // Charger l'en-tête et le pied de page
+            db.collection("appData").doc("header_footer").get().then((doc) => {
+                if (doc.exists) {
+                    const data = doc.data();
+                    if (data.title) document.querySelector('header h1').innerHTML = data.title;
+                    if (data.subtitle) document.querySelector('header p').innerHTML = data.subtitle;
+                    if (data.footer) document.querySelector('footer').innerHTML = data.footer;
                 }
             });
 
@@ -1402,7 +1437,7 @@
                     }
                 });
             });
-            console.log("Toutes les données ont été chargées avec succès !");
+            console.log("Chargement complet réussi !");
         }
     </script>
 
