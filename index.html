@@ -71,8 +71,10 @@
         header h1[contenteditable="true"]:hover,
         header p[contenteditable="true"]:hover,
         .card h3[contenteditable="true"]:hover,
-        .card p[contenteditable="true"]:hover {
-            background-color: rgba(255, 255, 255, 0.1);
+        .card p[contenteditable="true"]:hover,
+        .theme-card h4[contenteditable="true"]:hover,
+        .theme-card p[contenteditable="true"]:hover {
+            background-color: rgba(91, 112, 101, 0.05);
             border-radius: 4px;
             cursor: text;
         }
@@ -132,17 +134,20 @@
             border: 1px solid var(--border-color);
             border-radius: 16px;
             padding: 1.5rem;
-            cursor: pointer;
             transition: all 0.3s ease;
             text-align: left;
             box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+            position: relative;
         }
 
         .theme-card:hover {
             border-color: var(--primary-color);
             background-color: #fbfcfb;
-            transform: translateY(-4px);
             box-shadow: 0 8px 20px rgba(91, 112, 101, 0.1);
+        }
+
+        .theme-card .theme-clickable {
+            cursor: pointer;
         }
 
         .theme-card h4 {
@@ -150,12 +155,14 @@
             color: var(--primary-color);
             font-size: 1.15rem;
             font-weight: 600;
+            outline: none;
         }
 
         .theme-card p {
             margin: 0 0 0.8rem 0;
             font-size: 0.9rem;
             color: #66706b;
+            outline: none;
         }
 
         .duration-tag {
@@ -166,6 +173,7 @@
             border-radius: 20px;
             font-size: 0.75rem;
             font-weight: 600;
+            outline: none;
         }
 
         .protocols-container {
@@ -421,7 +429,7 @@
             <button class="tab-btn" onclick="switchTab('protocoles', event)">15 Thématiques</button>
         </div>
 
-        <!-- Section Accueil (Modifiable et Sauvegardée) -->
+        <!-- Section Accueil -->
         <div id="accueil" class="section-content active" oninput="saveHome()">
             <div class="card">
                 <h3 contenteditable="true">Bienvenue dans votre espace d'accompagnement</h3>
@@ -435,22 +443,112 @@
             <h2>Choisissez l'une de nos 15 Thématiques</h2>
             <p>Modifiez, ajoutez ou supprimez des exercices directement dans les séances !</p>
 
-            <div id="theme-menu" class="theme-selector">
-                <div class="theme-card" onclick="selectTheme('t1')"><h4>1. 🧘‍♂️ Lâcher-prise & Anti-Stress</h4><p>Sophrologie (Prana, Nauli, etc.) + Reiki</p><span class="duration-tag">⏱️ 45 - 60 min</span></div>
-                <div class="theme-card" onclick="selectTheme('t2')"><h4>2. 🌙 Sommeil & Sérénité</h4><p>Sophrologie + Reiki</p><span class="duration-tag">⏱️ 45 - 60 min</span></div>
-                <div class="theme-card" onclick="selectTheme('t3')"><h4>3. ⚡ Énergie & Vitalité</h4><p>Sophrologie + Reiki</p><span class="duration-tag">⏱️ 45 - 60 min</span></div>
-                <div class="theme-card" onclick="selectTheme('t4')"><h4>4. 🛡️ Anti-Burnout & Surmenage</h4><p>Sophrologie + Reiki</p><span class="duration-tag">⏱️ 45 - 60 min</span></div>
-                <div class="theme-card" onclick="selectTheme('t5')"><h4>5. 🧠 Libération Charge Mentale</h4><p>Sophrologie + Reiki</p><span class="duration-tag">⏱️ 45 - 60 min</span></div>
-                <div class="theme-card" onclick="selectTheme('theme-6')"><h4>6. 💕 Cœur & Émotions Apaisées</h4><p>Sophrologie + Reiki</p><span class="duration-tag">⏱️ 45 - 60 min</span></div>
-                <div class="theme-card" onclick="selectTheme('theme-7')"><h4>7. 🌳 Ancrage & Stabilité</h4><p>Sophrologie + Reiki</p><span class="duration-tag">⏱️ 45 - 60 min</span></div>
-                <div class="theme-card" onclick="selectTheme('theme-8')"><h4>8. 🚀 Coup de Boost Énergétique</h4><p>Sophrologie + Reiki</p><span class="duration-tag">⏱️ 45 - 60 min</span></div>
-                <div class="theme-card" onclick="selectTheme('theme-9')"><h4>9. 🦴 Relâchement Dos & Nuque</h4><p>Sophrologie + Reiki</p><span class="duration-tag">⏱️ 45 - 60 min</span></div>
-                <div class="theme-card" onclick="selectTheme('theme-10')"><h4>10. 🎯 Gestion du Trac & Examens</h4><p>Sophrologie + Reiki</p><span class="duration-tag">⏱️ 45 - 60 min</span></div>
-                <div class="theme-card" onclick="selectTheme('theme-11')"><h4>11. 🌸 Douceur & Auto-Bienveillance</h4><p>Sophrologie + Reiki</p><span class="duration-tag">⏱️ 45 - 60 min</span></div>
-                <div class="theme-card" onclick="selectTheme('theme-12')"><h4>12. 🏃‍♂️ Récupération Post-Effort</h4><p>Sophrologie + Reiki</p><span class="duration-tag">⏱️ 45 - 60 min</span></div>
-                <div class="theme-card" onclick="selectTheme('theme-13')"><h4>13. 💡 Clarté d'Esprit & Focus</h4><p>Sophrologie + Reiki</p><span class="duration-tag">⏱️ 45 - 60 min</span></div>
-                <div class="theme-card" onclick="selectTheme('theme-14')"><h4>14. 🤫 Paix Intérieure & Silence</h4><p>Sophrologie + Reiki</p><span class="duration-tag">⏱️ 45 - 60 min</span></div>
-                <div class="theme-card" onclick="selectTheme('theme-15')"><h4>15. ✨ Harmonisation Globale</h4><p>Sophrologie + Reiki</p><span class="duration-tag">⏱️ 45 - 60 min</span></div>
+            <div id="theme-menu" class="theme-selector" oninput="saveMenu()" onclick="handleThemeClick(event)">
+                <div class="theme-card" data-target="t1">
+                    <div class="theme-clickable">
+                        <h4 contenteditable="true">1. 🧘‍♂️ Lâcher-prise & Anti-Stress</h4>
+                        <p contenteditable="true">Sophrologie (Prana, Nauli, etc.) + Reiki</p>
+                        <span class="duration-tag" contenteditable="true">⏱️ 45 - 60 min</span>
+                    </div>
+                </div>
+                <div class="theme-card" data-target="t2">
+                    <div class="theme-clickable">
+                        <h4 contenteditable="true">2. 🌙 Sommeil & Sérénité</h4>
+                        <p contenteditable="true">Sophrologie + Reiki</p>
+                        <span class="duration-tag" contenteditable="true">⏱️ 45 - 60 min</span>
+                    </div>
+                </div>
+                <div class="theme-card" data-target="t3">
+                    <div class="theme-clickable">
+                        <h4 contenteditable="true">3. ⚡ Énergie & Vitalité</h4>
+                        <p contenteditable="true">Sophrologie + Reiki</p>
+                        <span class="duration-tag" contenteditable="true">⏱️ 45 - 60 min</span>
+                    </div>
+                </div>
+                <div class="theme-card" data-target="t4">
+                    <div class="theme-clickable">
+                        <h4 contenteditable="true">4. 🛡️ Anti-Burnout & Surmenage</h4>
+                        <p contenteditable="true">Sophrologie + Reiki</p>
+                        <span class="duration-tag" contenteditable="true">⏱️ 45 - 60 min</span>
+                    </div>
+                </div>
+                <div class="theme-card" data-target="t5">
+                    <div class="theme-clickable">
+                        <h4 contenteditable="true">5. 🧠 Libération Charge Mentale</h4>
+                        <p contenteditable="true">Sophrologie + Reiki</p>
+                        <span class="duration-tag" contenteditable="true">⏱️ 45 - 60 min</span>
+                    </div>
+                </div>
+                <div class="theme-card" data-target="theme-6">
+                    <div class="theme-clickable">
+                        <h4 contenteditable="true">6. 💕 Cœur & Émotions Apaisées</h4>
+                        <p contenteditable="true">Sophrologie + Reiki</p>
+                        <span class="duration-tag" contenteditable="true">⏱️ 45 - 60 min</span>
+                    </div>
+                </div>
+                <div class="theme-card" data-target="theme-7">
+                    <div class="theme-clickable">
+                        <h4 contenteditable="true">7. 🌳 Ancrage & Stabilité</h4>
+                        <p contenteditable="true">Sophrologie + Reiki</p>
+                        <span class="duration-tag" contenteditable="true">⏱️ 45 - 60 min</span>
+                    </div>
+                </div>
+                <div class="theme-card" data-target="theme-8">
+                    <div class="theme-clickable">
+                        <h4 contenteditable="true">8. 🚀 Coup de Boost Énergétique</h4>
+                        <p contenteditable="true">Sophrologie + Reiki</p>
+                        <span class="duration-tag" contenteditable="true">⏱️ 45 - 60 min</span>
+                    </div>
+                </div>
+                <div class="theme-card" data-target="theme-9">
+                    <div class="theme-clickable">
+                        <h4 contenteditable="true">9. 🦴 Relâchement Dos & Nuque</h4>
+                        <p contenteditable="true">Sophrologie + Reiki</p>
+                        <span class="duration-tag" contenteditable="true">⏱️ 45 - 60 min</span>
+                    </div>
+                </div>
+                <div class="theme-card" data-target="theme-10">
+                    <div class="theme-clickable">
+                        <h4 contenteditable="true">10. 🎯 Gestion du Trac & Examens</h4>
+                        <p contenteditable="true">Sophrologie + Reiki</p>
+                        <span class="duration-tag" contenteditable="true">⏱️ 45 - 60 min</span>
+                    </div>
+                </div>
+                <div class="theme-card" data-target="theme-11">
+                    <div class="theme-clickable">
+                        <h4 contenteditable="true">11. 🌸 Douceur & Auto-Bienveillance</h4>
+                        <p contenteditable="true">Sophrologie + Reiki</p>
+                        <span class="duration-tag" contenteditable="true">⏱️ 45 - 60 min</span>
+                    </div>
+                </div>
+                <div class="theme-card" data-target="theme-12">
+                    <div class="theme-clickable">
+                        <h4 contenteditable="true">12. 🏃‍♂️ Récupération Post-Effort</h4>
+                        <p contenteditable="true">Sophrologie + Reiki</p>
+                        <span class="duration-tag" contenteditable="true">⏱️ 45 - 60 min</span>
+                    </div>
+                </div>
+                <div class="theme-card" data-target="theme-13">
+                    <div class="theme-clickable">
+                        <h4 contenteditable="true">13. 💡 Clarté d'Esprit & Focus</h4>
+                        <p contenteditable="true">Sophrologie + Reiki</p>
+                        <span class="duration-tag" contenteditable="true">⏱️ 45 - 60 min</span>
+                    </div>
+                </div>
+                <div class="theme-card" data-target="theme-14">
+                    <div class="theme-clickable">
+                        <h4 contenteditable="true">14. 🤫 Paix Intérieure & Silence</h4>
+                        <p contenteditable="true">Sophrologie + Reiki</p>
+                        <span class="duration-tag" contenteditable="true">⏱️ 45 - 60 min</span>
+                    </div>
+                </div>
+                <div class="theme-card" data-target="theme-15">
+                    <div class="theme-clickable">
+                        <h4 contenteditable="true">15. ✨ Harmonisation Globale</h4>
+                        <p contenteditable="true">Sophrologie + Reiki</p>
+                        <span class="duration-tag" contenteditable="true">⏱️ 45 - 60 min</span>
+                    </div>
+                </div>
             </div>
 
             <!-- ================= THÉMATIQUE 1 ================= -->
@@ -460,7 +558,7 @@
                     <span class="badge protocole">Thématique 1 / 15</span>
                     <h3 contenteditable="true">Séance Lâcher-prise & Anti-Stress</h3>
                     <p contenteditable="true"><strong>Objectif :</strong> Évacuer les tensions physiques et mentales grâce à vos exercices spécifiques.</p>
-                    <span class="duration-tag" style="margin-bottom: 1rem;">⏱️ Durée de la séance : 45 à 60 minutes</span>
+                    <span class="duration-tag" style="margin-bottom: 1rem;" contenteditable="true">⏱️ Durée de la séance : 45 à 60 minutes</span>
                     <div class="rule-box" contenteditable="true">Règle d'or : Répétez chaque exercice de sophrologie 3 fois de suite, avec un temps de pause les yeux fermés entre chaque répétition pour accueillir les sensations.</div>
                     
                     <div class="exercises-list">
@@ -512,7 +610,7 @@
                     <span class="badge protocole">Thématique 2 / 15</span>
                     <h3 contenteditable="true">Protocole Sommeil & Sérénité</h3>
                     <p contenteditable="true"><strong>Objectif :</strong> Relâcher les tensions pour une nuit profonde.</p>
-                    <span class="duration-tag" style="margin-bottom: 1rem;">⏱️ Durée de la séance : 45 à 60 minutes</span>
+                    <span class="duration-tag" style="margin-bottom: 1rem;" contenteditable="true">⏱️ Durée de la séance : 45 à 60 minutes</span>
                     <div class="rule-box" contenteditable="true">Règle d'or : Répétition par 3 avec temps d'accueil.</div>
                     
                     <div class="exercises-list">
@@ -564,7 +662,7 @@
                     <span class="badge protocole">Thématique 3 / 15</span>
                     <h3 contenteditable="true">Énergie & Vitalité</h3>
                     <p contenteditable="true"><strong>Objectif :</strong> Stimuler l'élan vital et la tonicité.</p>
-                    <span class="duration-tag" style="margin-bottom: 1rem;">⏱️ Durée de la séance : 45 à 60 minutes</span>
+                    <span class="duration-tag" style="margin-bottom: 1rem;" contenteditable="true">⏱️ Durée de la séance : 45 à 60 minutes</span>
                     <div class="rule-box" contenteditable="true">Règle d'or : Répétition par 3 avec temps d'accueil.</div>
                     
                     <div class="exercises-list">
@@ -616,7 +714,7 @@
                     <span class="badge protocole">Thématique 4 / 15</span>
                     <h3 contenteditable="true">Anti-Burnout & Surmenage</h3>
                     <p contenteditable="true"><strong>Objectif :</strong> Déconnecter d'une charge intense et récupérer.</p>
-                    <span class="duration-tag" style="margin-bottom: 1rem;">⏱️ Durée de la séance : 45 à 60 minutes</span>
+                    <span class="duration-tag" style="margin-bottom: 1rem;" contenteditable="true">⏱️ Durée de la séance : 45 à 60 minutes</span>
                     <div class="rule-box" contenteditable="true">Règle d'or : Répétition par 3 avec temps d'accueil.</div>
                     
                     <div class="exercises-list">
@@ -668,7 +766,7 @@
                     <span class="badge protocole">Thématique 5 / 15</span>
                     <h3 contenteditable="true">Libération Charge Mentale</h3>
                     <p contenteditable="true"><strong>Objectif :</strong> Stopper le flot des pensées parasites.</p>
-                    <span class="duration-tag" style="margin-bottom: 1rem;">⏱️ Durée de la séance : 45 à 60 minutes</span>
+                    <span class="duration-tag" style="margin-bottom: 1rem;" contenteditable="true">⏱️ Durée de la séance : 45 à 60 minutes</span>
                     <div class="rule-box" contenteditable="true">Règle d'or : Répétition par 3 avec temps d'accueil.</div>
                     
                     <div class="exercises-list">
@@ -720,7 +818,7 @@
                     <span class="badge protocole">Thématique 6 / 15</span>
                     <h3 contenteditable="true">Cœur & Émotions Apaisées</h3>
                     <p contenteditable="true"><strong>Objectif :</strong> Traverser et adoucir les turbulences émotionnelles.</p>
-                    <span class="duration-tag" style="margin-bottom: 1rem;">⏱️ Durée de la séance : 45 à 60 minutes</span>
+                    <span class="duration-tag" style="margin-bottom: 1rem;" contenteditable="true">⏱️ Durée de la séance : 45 à 60 minutes</span>
                     <div class="rule-box" contenteditable="true">Règle d'or : Répétition par 3 avec temps d'accueil.</div>
                     
                     <div class="exercises-list">
@@ -772,7 +870,7 @@
                     <span class="badge protocole">Thématique 7 / 15</span>
                     <h3 contenteditable="true">Ancrage & Stabilité</h3>
                     <p contenteditable="true"><strong>Objectif :</strong> Se sentir enraciné, solide et stable.</p>
-                    <span class="duration-tag" style="margin-bottom: 1rem;">⏱️ Durée de la séance : 45 à 60 minutes</span>
+                    <span class="duration-tag" style="margin-bottom: 1rem;" contenteditable="true">⏱️ Durée de la séance : 45 à 60 minutes</span>
                     <div class="rule-box" contenteditable="true">Règle d'or : Répétition par 3 avec temps d'accueil.</div>
                     
                     <div class="exercises-list">
@@ -824,7 +922,7 @@
                     <span class="badge protocole">Thématique 8 / 15</span>
                     <h3 contenteditable="true">Coup de Boost Énergétique</h3>
                     <p contenteditable="true"><strong>Objectif :</strong> Vaincre la torpeur de milieu de journée.</p>
-                    <span class="duration-tag" style="margin-bottom: 1rem;">⏱️ Durée de la séance : 45 à 60 minutes</span>
+                    <span class="duration-tag" style="margin-bottom: 1rem;" contenteditable="true">⏱️ Durée de la séance : 45 à 60 minutes</span>
                     <div class="rule-box" contenteditable="true">Règle d'or : Répétition par 3 avec temps d'accueil.</div>
                     
                     <div class="exercises-list">
@@ -876,7 +974,7 @@
                     <span class="badge protocole">Thématique 9 / 15</span>
                     <h3 contenteditable="true">Relâchement Dos & Nuque</h3>
                     <p contenteditable="true"><strong>Objectif :</strong> Soulager les crispations et la sédentarité.</p>
-                    <span class="duration-tag" style="margin-bottom: 1rem;">⏱️ Durée de la séance : 45 à 60 minutes</span>
+                    <span class="duration-tag" style="margin-bottom: 1rem;" contenteditable="true">⏱️ Durée de la séance : 45 à 60 minutes</span>
                     <div class="rule-box" contenteditable="true">Règle d'or : Répétition par 3 avec temps d'accueil.</div>
                     
                     <div class="exercises-list">
@@ -928,7 +1026,7 @@
                     <span class="badge protocole">Thématique 10 / 15</span>
                     <h3 contenteditable="true">Gestion du Trac & Examens</h3>
                     <p contenteditable="true"><strong>Objectif :</strong> Contrôler la respiration et libérer la gorge avant un défi.</p>
-                    <span class="duration-tag" style="margin-bottom: 1rem;">⏱️ Durée de la séance : 45 à 60 minutes</span>
+                    <span class="duration-tag" style="margin-bottom: 1rem;" contenteditable="true">⏱️ Durée de la séance : 45 à 60 minutes</span>
                     <div class="rule-box" contenteditable="true">Règle d'or : Répétition par 3 avec temps d'accueil.</div>
                     
                     <div class="exercises-list">
@@ -980,7 +1078,7 @@
                     <span class="badge protocole">Thématique 11 / 15</span>
                     <h3 contenteditable="true">Douceur & Auto-Bienveillance</h3>
                     <p contenteditable="true"><strong>Objectif :</strong> Cultiver l'amour de soi et la compassion.</p>
-                    <span class="duration-tag" style="margin-bottom: 1rem;">⏱️ Durée de la séance : 45 à 60 minutes</span>
+                    <span class="duration-tag" style="margin-bottom: 1rem;" contenteditable="true">⏱️ Durée de la séance : 45 à 60 minutes</span>
                     <div class="rule-box" contenteditable="true">Règle d'or : Répétition par 3 avec temps d'accueil.</div>
                     
                     <div class="exercises-list">
@@ -1032,7 +1130,7 @@
                     <span class="badge protocole">Thématique 12 / 15</span>
                     <h3 contenteditable="true">Récupération Post-Effort</h3>
                     <p contenteditable="true"><strong>Objectif :</strong> Redescendre en pression après le sport ou l'effort.</p>
-                    <span class="duration-tag" style="margin-bottom: 1rem;">⏱️ Durée de la séance : 45 à 60 minutes</span>
+                    <span class="duration-tag" style="margin-bottom: 1rem;" contenteditable="true">⏱️ Durée de la séance : 45 à 60 minutes</span>
                     <div class="rule-box" contenteditable="true">Règle d'or : Répétition par 3 avec temps d'accueil.</div>
                     
                     <div class="exercises-list">
@@ -1084,7 +1182,7 @@
                     <span class="badge protocole">Thématique 13 / 15</span>
                     <h3 contenteditable="true">Clarté d'Esprit & Focus</h3>
                     <p contenteditable="true"><strong>Objectif :</strong> Optimiser la concentration intellectuelle.</p>
-                    <span class="duration-tag" style="margin-bottom: 1rem;">⏱️ Durée de la séance : 45 à 60 minutes</span>
+                    <span class="duration-tag" style="margin-bottom: 1rem;" contenteditable="true">⏱️ Durée de la séance : 45 à 60 minutes</span>
                     <div class="rule-box" contenteditable="true">Règle d'or : Répétition par 3 avec temps d'accueil.</div>
                     
                     <div class="exercises-list">
@@ -1136,7 +1234,7 @@
                     <span class="badge protocole">Thématique 14 / 15</span>
                     <h3 contenteditable="true">Paix Intérieure & Silence</h3>
                     <p contenteditable="true"><strong>Objectif :</strong> S'isoler du monde et s'offrir une bulle de calme.</p>
-                    <span class="duration-tag" style="margin-bottom: 1rem;">⏱️ Durée de la séance : 45 à 60 minutes</span>
+                    <span class="duration-tag" style="margin-bottom: 1rem;" contenteditable="true">⏱️ Durée de la séance : 45 à 60 minutes</span>
                     <div class="rule-box" contenteditable="true">Règle d'or : Répétition par 3 avec temps d'accueil.</div>
                     
                     <div class="exercises-list">
@@ -1188,7 +1286,7 @@
                     <span class="badge protocole">Thématique 15 / 15</span>
                     <h3 contenteditable="true">Protocole Harmonisation Globale</h3>
                     <p contenteditable="true"><strong>Objectif :</strong> La séance complète d'harmonisation corps-esprit.</p>
-                    <span class="duration-tag" style="margin-bottom: 1rem;">⏱️ Durée de la séance : 45 à 60 minutes</span>
+                    <span class="duration-tag" style="margin-bottom: 1rem;" contenteditable="true">⏱️ Durée de la séance : 45 à 60 minutes</span>
                     <div class="rule-box" contenteditable="true">Règle d'or : Répétition par 3 avec temps d'accueil.</div>
                     
                     <div class="exercises-list">
@@ -1269,11 +1367,23 @@
             }
         }
 
+        function handleThemeClick(event) {
+            // Si l'utilisateur clique pour modifier le texte, on ne change pas de page
+            if (event.target.getAttribute('contenteditable') === 'true') return;
+            
+            const card = event.target.closest('.theme-card');
+            if (card) {
+                const targetId = card.getAttribute('data-target');
+                selectTheme(targetId);
+            }
+        }
+
         function selectTheme(themeId) {
             document.getElementById('theme-menu').style.display = 'none';
             const containers = document.querySelectorAll('.protocols-container');
             containers.forEach(cont => cont.classList.remove('active'));
-            document.getElementById(themeId).classList.add('active');
+            const targetCont = document.getElementById(themeId);
+            if(targetCont) targetCont.classList.add('active');
         }
 
         function backToThemes() {
@@ -1378,7 +1488,7 @@
             }
         }
 
-        // ENREGISTREMENT SÉPARÉ DES THÉMATIQUES
+        // ENREGISTREMENTS INDÉPENDANTS
         function saveTheme(container) {
             const themeId = container.id;
             db.collection("appData").doc("theme_" + themeId).set({
@@ -1387,7 +1497,14 @@
             }).catch((error) => { console.error("Erreur : ", error); });
         }
 
-        // ENREGISTREMENT DE LA PAGE D'ACCUEIL ET DE L'EN-TÊTE
+        function saveMenu() {
+            const menuContent = document.getElementById('theme-menu').innerHTML;
+            db.collection("appData").doc("menu_thematiques").set({
+                html: menuContent,
+                updatedAt: new Date()
+            }).catch((error) => { console.error("Erreur : ", error); });
+        }
+
         function saveHome() {
             const homeContent = document.getElementById('accueil').innerHTML;
             db.collection("appData").doc("page_accueil").set({
@@ -1410,6 +1527,13 @@
 
         // CHARGEMENT DE TOUTES LES DONNÉES AU DÉMARRAGE
         function loadSavedData() {
+            // Charger le menu des thématiques
+            db.collection("appData").doc("menu_thematiques").get().then((doc) => {
+                if (doc.exists && doc.data().html) {
+                    document.getElementById('theme-menu').innerHTML = doc.data().html;
+                }
+            });
+
             // Charger l'accueil
             db.collection("appData").doc("page_accueil").get().then((doc) => {
                 if (doc.exists && doc.data().html) {
@@ -1427,7 +1551,7 @@
                 }
             });
 
-            // Charger chaque thématique indépendamment
+            // Charger chaque thématique individuellement
             const containers = document.querySelectorAll('.protocols-container');
             containers.forEach((cont) => {
                 const themeId = cont.id;
